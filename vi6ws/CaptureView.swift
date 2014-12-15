@@ -14,28 +14,16 @@ class CaptureView: UIView {
     var captureSession: AVCaptureSession?
     var videoPreviewLayer: AVCaptureVideoPreviewLayer?
     
-    var cameraPosition: AVCaptureDevicePosition {
-        get {
-            return self.cameraPosition
-        }
-        set {
-            self.cameraPosition = newValue
-            setupCaptureSession()
-        }
-    }
+    var cameraPosition: AVCaptureDevicePosition
     
     override init(frame: CGRect) {
+        cameraPosition = .Back
         super.init(frame: frame)
-        commonInit()
     }
     
     required init(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-        commonInit()
-    }
-    
-    func commonInit() {
         cameraPosition = .Back
+        super.init(coder: aDecoder)
     }
     
     override func willMoveToSuperview(newSuperview: UIView?) {
@@ -83,6 +71,11 @@ class CaptureView: UIView {
                 }
             }
         }
+    }
+    
+    func setCameraPosition(position: AVCaptureDevicePosition) {
+        cameraPosition = position
+        setupCaptureSession()
     }
     
     func setupVideoPreviewLayer() {
