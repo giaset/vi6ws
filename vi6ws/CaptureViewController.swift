@@ -10,9 +10,13 @@ import UIKit
 
 class CaptureViewController: UIViewController {
 
+    var captureControlsView: CaptureControlsView?
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = UIColor.redColor()
+        
+        captureControlsView = CaptureControlsView(frame: view.frame)
+        view.addSubview(captureControlsView!)
     }
 
     override func didReceiveMemoryWarning() {
