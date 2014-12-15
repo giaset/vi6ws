@@ -80,7 +80,12 @@ class CaptureView: UIView {
     
     func setupVideoPreviewLayer() {
         videoPreviewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
-        videoPreviewLayer?.frame = bounds
+        
+        var layerBounds = layer.bounds
+        videoPreviewLayer?.videoGravity = AVLayerVideoGravityResizeAspectFill
+        videoPreviewLayer?.bounds = layerBounds
+        videoPreviewLayer?.position = CGPoint(x: CGRectGetMidX(layerBounds), y: CGRectGetMidY(layerBounds))
+        
         layer.addSublayer(videoPreviewLayer)
     }
     
