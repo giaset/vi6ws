@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  CaptureViewController.swift
 //  vi6ws
 //
 //  Created by Gianni Settino on 2014-12-14.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class CaptureViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
