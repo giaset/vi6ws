@@ -12,18 +12,7 @@
 		6861ECD61A3E8E170044B90C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6861ECD41A3E8E170044B90C /* Main.storyboard */; };
 		6861ECD81A3E8E170044B90C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6861ECD71A3E8E170044B90C /* Images.xcassets */; };
 		6861ECDB1A3E8E170044B90C /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6861ECD91A3E8E170044B90C /* LaunchScreen.xib */; };
-		6861ECE71A3E8E170044B90C /* vi6wsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6861ECE61A3E8E170044B90C /* vi6wsTests.swift */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		6861ECE11A3E8E170044B90C /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 6861ECC31A3E8E170044B90C /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 6861ECCA1A3E8E170044B90C;
-			remoteInfo = vi6ws;
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		6861ECCB1A3E8E170044B90C /* vi6ws.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = vi6ws.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -33,20 +22,10 @@
 		6861ECD51A3E8E170044B90C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		6861ECD71A3E8E170044B90C /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		6861ECDA1A3E8E170044B90C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		6861ECE01A3E8E170044B90C /* vi6wsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = vi6wsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		6861ECE51A3E8E170044B90C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		6861ECE61A3E8E170044B90C /* vi6wsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = vi6wsTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		6861ECC81A3E8E170044B90C /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		6861ECDD1A3E8E170044B90C /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -60,7 +39,6 @@
 			isa = PBXGroup;
 			children = (
 				6861ECCD1A3E8E170044B90C /* vi6ws */,
-				6861ECE31A3E8E170044B90C /* vi6wsTests */,
 				6861ECCC1A3E8E170044B90C /* Products */,
 			);
 			sourceTree = "<group>";
@@ -69,7 +47,6 @@
 			isa = PBXGroup;
 			children = (
 				6861ECCB1A3E8E170044B90C /* vi6ws.app */,
-				6861ECE01A3E8E170044B90C /* vi6wsTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -95,23 +72,6 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		6861ECE31A3E8E170044B90C /* vi6wsTests */ = {
-			isa = PBXGroup;
-			children = (
-				6861ECE61A3E8E170044B90C /* vi6wsTests.swift */,
-				6861ECE41A3E8E170044B90C /* Supporting Files */,
-			);
-			path = vi6wsTests;
-			sourceTree = "<group>";
-		};
-		6861ECE41A3E8E170044B90C /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				6861ECE51A3E8E170044B90C /* Info.plist */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -132,24 +92,6 @@
 			productReference = 6861ECCB1A3E8E170044B90C /* vi6ws.app */;
 			productType = "com.apple.product-type.application";
 		};
-		6861ECDF1A3E8E170044B90C /* vi6wsTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 6861ECED1A3E8E170044B90C /* Build configuration list for PBXNativeTarget "vi6wsTests" */;
-			buildPhases = (
-				6861ECDC1A3E8E170044B90C /* Sources */,
-				6861ECDD1A3E8E170044B90C /* Frameworks */,
-				6861ECDE1A3E8E170044B90C /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				6861ECE21A3E8E170044B90C /* PBXTargetDependency */,
-			);
-			name = vi6wsTests;
-			productName = vi6wsTests;
-			productReference = 6861ECE01A3E8E170044B90C /* vi6wsTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -161,10 +103,6 @@
 				TargetAttributes = {
 					6861ECCA1A3E8E170044B90C = {
 						CreatedOnToolsVersion = 6.1;
-					};
-					6861ECDF1A3E8E170044B90C = {
-						CreatedOnToolsVersion = 6.1;
-						TestTargetID = 6861ECCA1A3E8E170044B90C;
 					};
 				};
 			};
@@ -182,7 +120,6 @@
 			projectRoot = "";
 			targets = (
 				6861ECCA1A3E8E170044B90C /* vi6ws */,
-				6861ECDF1A3E8E170044B90C /* vi6wsTests */,
 			);
 		};
 /* End PBXProject section */
@@ -198,13 +135,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		6861ECDE1A3E8E170044B90C /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -217,23 +147,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		6861ECDC1A3E8E170044B90C /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				6861ECE71A3E8E170044B90C /* vi6wsTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		6861ECE21A3E8E170044B90C /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 6861ECCA1A3E8E170044B90C /* vi6ws */;
-			targetProxy = 6861ECE11A3E8E170044B90C /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		6861ECD41A3E8E170044B90C /* Main.storyboard */ = {
@@ -352,40 +266,6 @@
 			};
 			name = Release;
 		};
-		6861ECEE1A3E8E170044B90C /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = vi6wsTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/vi6ws.app/vi6ws";
-			};
-			name = Debug;
-		};
-		6861ECEF1A3E8E170044B90C /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = vi6wsTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/vi6ws.app/vi6ws";
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -403,14 +283,6 @@
 			buildConfigurations = (
 				6861ECEB1A3E8E170044B90C /* Debug */,
 				6861ECEC1A3E8E170044B90C /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-		};
-		6861ECED1A3E8E170044B90C /* Build configuration list for PBXNativeTarget "vi6wsTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				6861ECEE1A3E8E170044B90C /* Debug */,
-				6861ECEF1A3E8E170044B90C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 		};
