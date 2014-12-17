@@ -9,10 +9,24 @@
         <view contentMode="scaleToFill" id="iN0-l3-epB">
             <rect key="frame" x="0.0" y="0.0" width="480" height="480"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="marble" translatesAutoresizingMaskIntoConstraints="NO" id="45z-r2-04b">
+                    <rect key="frame" x="0.0" y="0.0" width="480" height="480"/>
+                </imageView>
+            </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="45z-r2-04b" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="6yp-Qg-jiu"/>
+                <constraint firstAttribute="trailing" secondItem="45z-r2-04b" secondAttribute="trailing" id="8eb-KE-9Ec"/>
+                <constraint firstAttribute="bottom" secondItem="45z-r2-04b" secondAttribute="bottom" id="HS1-B2-Ujz"/>
+                <constraint firstItem="45z-r2-04b" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="MbX-Y6-gVj"/>
+            </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <point key="canvasLocation" x="548" y="455"/>
         </view>
     </objects>
+    <resources>
+        <image name="marble" width="1211" height="2160"/>
+    </resources>
 </document>
