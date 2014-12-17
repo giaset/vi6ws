@@ -11,9 +11,14 @@ import UIKit
 class CaptureControlsView: UIView {
     
     var backgroundView: UIImageView?
-    var captureButton: UIButton?
+    
+    var recordButtonBackgroundView: UIView?
+    var recordButton: UIButton?
     
     let statusBarHeight = 44
+    let recordButtonRadius: CGFloat = 36
+    let recordButtonBorderWidth: CGFloat = 8
+    let padding: CGFloat = 15
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -29,36 +34,48 @@ class CaptureControlsView: UIView {
         backgroundView = UIImageView(image: UIImage(named: "marble"))
         addSubview(backgroundView!)
         
-        /*
+        recordButtonBackgroundView = UIView()
+        recordButtonBackgroundView?.backgroundColor = UIColor.blackColor()
+        recordButtonBackgroundView?.alpha = 0.2
+        recordButtonBackgroundView?.layer.cornerRadius = recordButtonRadius+recordButtonBorderWidth
+        addSubview(recordButtonBackgroundView!)
         
-        var bottomBlurView = UIVisualEffectView(effect: blurEffect)
-        bottomBlurView.frame = CGRect(x: 0, y: view.bounds.size.height-topAndBottomViewHeight, width: previewSquareSize, height: topAndBottomViewHeight)
-        view.addSubview(bottomBlurView)
-        
-        var recordButtonRadius: CGFloat = 45
-        var recordButtonBorderOffset: CGFloat = 10
-        
-        var recordButtonBorder = UIView(frame: CGRectMake(0, 0, 2*(recordButtonRadius+recordButtonBorderOffset), 2*(recordButtonRadius+recordButtonBorderOffset)))
-        recordButtonBorder.backgroundColor = UIColor.clearColor()
-        recordButtonBorder.layer.borderColor = UIColor.whiteColor().CGColor
-        recordButtonBorder.layer.borderWidth = recordButtonBorderOffset/2
-        recordButtonBorder.layer.masksToBounds = true
-        recordButtonBorder.layer.cornerRadius = recordButtonRadius+recordButtonBorderOffset
-        recordButtonBorder.center = CGPoint(x: view.center.x, y: bottomBlurView.center.y)
-        view.addSubview(recordButtonBorder)
-        
-        var recordButton = UIButton(frame: CGRectMake(0, 0, 2*recordButtonRadius, 2*recordButtonRadius))
-        recordButton.layer.masksToBounds = true
-        recordButton.layer.cornerRadius = recordButtonRadius
-        recordButton.backgroundColor = UIColor.whiteColor()
-        recordButton.center = CGPoint(x: view.center.x, y: bottomBlurView.center.y)
-        view.addSubview(recordButton)*/
+        recordButton = UIButton()
+        recordButton?.setBackgroundImage(UIImage.imageWithColor(UIColor.blackColor()), forState: .Normal)
+        recordButton?.setBackgroundImage(UIImage.imageWithColor(UIColor.redColor()), forState: .Highlighted)
+        recordButton?.layer.cornerRadius = recordButtonRadius
+        recordButton?.clipsToBounds = true
+        addSubview(recordButton!)
     }
     
     override func layoutSubviews() {
         super.layoutSubviews()
         
         backgroundView?.frame = frame
+        
+        var recordButtonBackgroundViewRadius = recordButtonRadius+recordButtonBorderWidth
+        recordButtonBackgroundView?.frame = CGRect(x: 0, y: frame.size.height-15-2*recordButtonBackgroundViewRadius, width: 2*recordButtonBackgroundViewRadius, height: 2*recordButtonBackgroundViewRadius)
+        recordButtonBackgroundView?.center = CGPointMake(center.x, recordButtonBackgroundView!.center.y)
+        
+        recordButton?.frame = CGRect(x: 0, y: 0, width: 2*recordButtonRadius, height: 2*recordButtonRadius)
+        recordButton?.center = recordButtonBackgroundView!.center
     }
     
+}
+
+extension UIImage {
+    class func imageWithColor(color: UIColor) -> UIImage {
+        let rect = CGRect(x: 0, y: 0, width: 1, height: 1)
+        
+        UIGraphicsBeginImageContext(rect.size)
+        let context = UIGraphicsGetCurrentContext()
+        
+        CGContextSetFillColorWithColor(context, color.CGColor)
+        CGContextFillRect(context, rect)
+        
+        let image = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        
+        return image
+    }
 }
