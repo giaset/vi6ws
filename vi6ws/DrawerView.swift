@@ -32,6 +32,7 @@ class DrawerView: UIView {
         websiteButton.setTitleColor(UIColor.blackColor(), forState: .Highlighted)
         websiteButton.contentHorizontalAlignment = .Left
         websiteButton.contentEdgeInsets = UIEdgeInsetsMake(0, 25, 0, 0)
+        websiteButton.titleLabel?.font = UIFont(name: "FuturaBT-Heavy", size: 16)
         addSubview(websiteButton)
         
         aboutButton.setTitle("ABOUT", forState: .Normal)
@@ -41,6 +42,7 @@ class DrawerView: UIView {
         aboutButton.setTitleColor(UIColor.blackColor(), forState: .Highlighted)
         aboutButton.contentHorizontalAlignment = .Left
         aboutButton.contentEdgeInsets = UIEdgeInsetsMake(0, 25, 0, 0)
+        aboutButton.titleLabel?.font = UIFont(name: "FuturaBT-Heavy", size: 16)
         addSubview(aboutButton)
         
         helpButton.setTitle("HELP", forState: .Normal)
@@ -50,6 +52,7 @@ class DrawerView: UIView {
         helpButton.setTitleColor(UIColor.blackColor(), forState: .Highlighted)
         helpButton.contentHorizontalAlignment = .Left
         helpButton.contentEdgeInsets = UIEdgeInsetsMake(0, 25, 0, 0)
+        helpButton.titleLabel?.font = UIFont(name: "FuturaBT-Heavy", size: 16)
         addSubview(helpButton)
         
         separator1.backgroundColor = UIColor.whiteColor()
