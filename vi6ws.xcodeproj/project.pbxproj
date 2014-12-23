@@ -11,6 +11,12 @@
 		6861ECD31A3E8E170044B90C /* CaptureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6861ECD21A3E8E170044B90C /* CaptureViewController.swift */; };
 		6861ECD81A3E8E170044B90C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6861ECD71A3E8E170044B90C /* Images.xcassets */; };
 		6861ECDB1A3E8E170044B90C /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6861ECD91A3E8E170044B90C /* LaunchScreen.xib */; };
+		68A457B91A49C045005FB2FD /* ECPercentDrivenInteractiveTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 68A457AD1A49C045005FB2FD /* ECPercentDrivenInteractiveTransition.m */; };
+		68A457BA1A49C045005FB2FD /* ECSlidingAnimationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 68A457AF1A49C045005FB2FD /* ECSlidingAnimationController.m */; };
+		68A457BB1A49C045005FB2FD /* ECSlidingInteractiveTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 68A457B21A49C045005FB2FD /* ECSlidingInteractiveTransition.m */; };
+		68A457BC1A49C045005FB2FD /* ECSlidingSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = 68A457B41A49C045005FB2FD /* ECSlidingSegue.m */; };
+		68A457BD1A49C045005FB2FD /* ECSlidingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 68A457B61A49C045005FB2FD /* ECSlidingViewController.m */; };
+		68A457BE1A49C045005FB2FD /* UIViewController+ECSlidingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 68A457B81A49C045005FB2FD /* UIViewController+ECSlidingViewController.m */; };
 		68B8B1591A3E933700DAAB61 /* CaptureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68B8B1581A3E933700DAAB61 /* CaptureView.swift */; };
 		68B8B15B1A3E934700DAAB61 /* CaptureControlsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68B8B15A1A3E934700DAAB61 /* CaptureControlsView.swift */; };
 /* End PBXBuildFile section */
@@ -22,6 +28,19 @@
 		6861ECD21A3E8E170044B90C /* CaptureViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaptureViewController.swift; sourceTree = "<group>"; };
 		6861ECD71A3E8E170044B90C /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		6861ECDA1A3E8E170044B90C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		68A457AC1A49C045005FB2FD /* ECPercentDrivenInteractiveTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ECPercentDrivenInteractiveTransition.h; sourceTree = "<group>"; };
+		68A457AD1A49C045005FB2FD /* ECPercentDrivenInteractiveTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ECPercentDrivenInteractiveTransition.m; sourceTree = "<group>"; };
+		68A457AE1A49C045005FB2FD /* ECSlidingAnimationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ECSlidingAnimationController.h; sourceTree = "<group>"; };
+		68A457AF1A49C045005FB2FD /* ECSlidingAnimationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ECSlidingAnimationController.m; sourceTree = "<group>"; };
+		68A457B01A49C045005FB2FD /* ECSlidingConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ECSlidingConstants.h; sourceTree = "<group>"; };
+		68A457B11A49C045005FB2FD /* ECSlidingInteractiveTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ECSlidingInteractiveTransition.h; sourceTree = "<group>"; };
+		68A457B21A49C045005FB2FD /* ECSlidingInteractiveTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ECSlidingInteractiveTransition.m; sourceTree = "<group>"; };
+		68A457B31A49C045005FB2FD /* ECSlidingSegue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ECSlidingSegue.h; sourceTree = "<group>"; };
+		68A457B41A49C045005FB2FD /* ECSlidingSegue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ECSlidingSegue.m; sourceTree = "<group>"; };
+		68A457B51A49C045005FB2FD /* ECSlidingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ECSlidingViewController.h; sourceTree = "<group>"; };
+		68A457B61A49C045005FB2FD /* ECSlidingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ECSlidingViewController.m; sourceTree = "<group>"; };
+		68A457B71A49C045005FB2FD /* UIViewController+ECSlidingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+ECSlidingViewController.h"; sourceTree = "<group>"; };
+		68A457B81A49C045005FB2FD /* UIViewController+ECSlidingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+ECSlidingViewController.m"; sourceTree = "<group>"; };
 		68B8B1581A3E933700DAAB61 /* CaptureView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CaptureView.swift; sourceTree = "<group>"; };
 		68B8B15A1A3E934700DAAB61 /* CaptureControlsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CaptureControlsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -41,6 +60,7 @@
 			isa = PBXGroup;
 			children = (
 				6861ECCD1A3E8E170044B90C /* vi6ws */,
+				68A457BF1A49C04A005FB2FD /* Vendors */,
 				6861ECCC1A3E8E170044B90C /* Products */,
 			);
 			sourceTree = "<group>";
@@ -73,6 +93,35 @@
 				6861ECCF1A3E8E170044B90C /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		68A457AB1A49C045005FB2FD /* ECSlidingViewController */ = {
+			isa = PBXGroup;
+			children = (
+				68A457AC1A49C045005FB2FD /* ECPercentDrivenInteractiveTransition.h */,
+				68A457AD1A49C045005FB2FD /* ECPercentDrivenInteractiveTransition.m */,
+				68A457AE1A49C045005FB2FD /* ECSlidingAnimationController.h */,
+				68A457AF1A49C045005FB2FD /* ECSlidingAnimationController.m */,
+				68A457B01A49C045005FB2FD /* ECSlidingConstants.h */,
+				68A457B11A49C045005FB2FD /* ECSlidingInteractiveTransition.h */,
+				68A457B21A49C045005FB2FD /* ECSlidingInteractiveTransition.m */,
+				68A457B31A49C045005FB2FD /* ECSlidingSegue.h */,
+				68A457B41A49C045005FB2FD /* ECSlidingSegue.m */,
+				68A457B51A49C045005FB2FD /* ECSlidingViewController.h */,
+				68A457B61A49C045005FB2FD /* ECSlidingViewController.m */,
+				68A457B71A49C045005FB2FD /* UIViewController+ECSlidingViewController.h */,
+				68A457B81A49C045005FB2FD /* UIViewController+ECSlidingViewController.m */,
+			);
+			path = ECSlidingViewController;
+			sourceTree = "<group>";
+		};
+		68A457BF1A49C04A005FB2FD /* Vendors */ = {
+			isa = PBXGroup;
+			children = (
+				68A457AB1A49C045005FB2FD /* ECSlidingViewController */,
+			);
+			name = Vendors;
+			path = vi6ws;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -145,8 +194,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				6861ECD31A3E8E170044B90C /* CaptureViewController.swift in Sources */,
+				68A457BA1A49C045005FB2FD /* ECSlidingAnimationController.m in Sources */,
+				68A457BE1A49C045005FB2FD /* UIViewController+ECSlidingViewController.m in Sources */,
+				68A457BD1A49C045005FB2FD /* ECSlidingViewController.m in Sources */,
 				6861ECD11A3E8E170044B90C /* AppDelegate.swift in Sources */,
+				68A457BB1A49C045005FB2FD /* ECSlidingInteractiveTransition.m in Sources */,
 				68B8B1591A3E933700DAAB61 /* CaptureView.swift in Sources */,
+				68A457B91A49C045005FB2FD /* ECPercentDrivenInteractiveTransition.m in Sources */,
+				68A457BC1A49C045005FB2FD /* ECSlidingSegue.m in Sources */,
 				68B8B15B1A3E934700DAAB61 /* CaptureControlsView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
