@@ -7,3 +7,4 @@
 //
 
 #import "ECSlidingViewController.h"
+#import "UIViewController+ECSlidingViewController.h"

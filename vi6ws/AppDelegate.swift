@@ -25,7 +25,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         slidingViewController = ECSlidingViewController(topViewController: rootNavController)
         slidingViewController!.underLeftViewController = drawerViewController
         
-        rootNavController.view.addGestureRecognizer(slidingViewController!.panGesture)
+        //rootNavController.view.addGestureRecognizer(slidingViewController!.panGesture)
         
         window?.rootViewController = slidingViewController
         

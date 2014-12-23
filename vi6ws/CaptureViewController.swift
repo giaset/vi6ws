@@ -24,6 +24,8 @@ class CaptureViewController: UIViewController {
         view.addSubview(captureView!)
         
         captureControlsView?.recordButton?.addTarget(self, action: "flash", forControlEvents: .TouchUpInside)
+        
+        captureControlsView!.hamburgerButton.addTarget(self, action: "hamburgerButtonPressed", forControlEvents: .TouchUpInside)
     }
 
     override func didReceiveMemoryWarning() {
@@ -61,6 +63,16 @@ class CaptureViewController: UIViewController {
                         self.flashView!.hidden = true
                 })
         })
+    }
+    
+    func hamburgerButtonPressed() {
+        var slidingVC = self.slidingViewController()
+        
+        if (slidingVC.currentTopViewPosition == .Centered) {
+            slidingVC.anchorTopViewToRightAnimated(true)
+        } else {
+            slidingVC.resetTopViewAnimated(true)
+        }
     }
     
 }
