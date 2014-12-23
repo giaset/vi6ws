@@ -20,7 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         var rootNavController = UINavigationController(rootViewController: CaptureViewController())
         
-        var drawerViewController = UIViewController()
+        var drawerViewController = DrawerViewController()
         
         slidingViewController = ECSlidingViewController(topViewController: rootNavController)
         slidingViewController!.underLeftViewController = drawerViewController
