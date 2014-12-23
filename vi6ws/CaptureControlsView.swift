@@ -15,6 +15,8 @@ class CaptureControlsView: UIView {
     var recordButtonBackgroundView: UIView?
     var recordButton: UIButton?
     
+    let hamburgerButton = UIButton()
+    
     let statusBarHeight = 44
     let recordButtonRadius: CGFloat = 36
     let recordButtonBorderWidth: CGFloat = 8
@@ -46,6 +48,9 @@ class CaptureControlsView: UIView {
         recordButton?.layer.cornerRadius = recordButtonRadius
         recordButton?.clipsToBounds = true
         addSubview(recordButton!)
+        
+        hamburgerButton.setBackgroundImage(UIImage(named: "hamburger"), forState: .Normal)
+        addSubview(hamburgerButton)
     }
     
     override func layoutSubviews() {
@@ -59,6 +64,9 @@ class CaptureControlsView: UIView {
         
         recordButton?.frame = CGRect(x: 0, y: 0, width: 2*recordButtonRadius, height: 2*recordButtonRadius)
         recordButton?.center = recordButtonBackgroundView!.center
+        
+        let hamburgerButtonSize = CGSizeMake(35, 27)
+        hamburgerButton.frame = CGRect(x: 22, y: self.frame.size.height-28-hamburgerButtonSize.height, width: hamburgerButtonSize.width, height: hamburgerButtonSize.height)
     }
     
 }
