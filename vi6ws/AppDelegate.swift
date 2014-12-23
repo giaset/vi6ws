@@ -12,12 +12,22 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
+    
+    var slidingViewController: ECSlidingViewController?
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         window = UIWindow(frame: UIScreen.mainScreen().bounds)
         
-        window?.rootViewController = UINavigationController(rootViewController: CaptureViewController())
+        var rootNavController = UINavigationController(rootViewController: CaptureViewController())
+        
+        var drawerViewController = UIViewController()
+        
+        slidingViewController = ECSlidingViewController(topViewController: rootNavController)
+        slidingViewController!.underLeftViewController = drawerViewController
+        
+        rootNavController.view.addGestureRecognizer(slidingViewController!.panGesture)
+        
+        window?.rootViewController = slidingViewController
         
         window?.makeKeyAndVisible()
         
