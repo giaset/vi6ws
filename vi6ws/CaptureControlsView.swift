@@ -16,8 +16,10 @@ class CaptureControlsView: UIView {
     var recordButton: UIButton?
     
     let hamburgerButton = UIButton()
+    let flashButton = UIButton()
+    let flipButton = UIButton()
     
-    let statusBarHeight = 44
+    let statusBarHeight: CGFloat = 44
     let recordButtonRadius: CGFloat = 36
     let recordButtonBorderWidth: CGFloat = 8
     let padding: CGFloat = 15
@@ -51,6 +53,12 @@ class CaptureControlsView: UIView {
         
         hamburgerButton.setBackgroundImage(UIImage(named: "hamburger"), forState: .Normal)
         addSubview(hamburgerButton)
+        
+        flashButton.setBackgroundImage(UIImage(named: "flash"), forState: .Normal)
+        addSubview(flashButton)
+        
+        flipButton.setBackgroundImage(UIImage(named: "flip"), forState: .Normal)
+        addSubview(flipButton)
     }
     
     override func layoutSubviews() {
@@ -67,6 +75,12 @@ class CaptureControlsView: UIView {
         
         let hamburgerButtonSize = CGSizeMake(35, 27)
         hamburgerButton.frame = CGRect(x: 22, y: self.frame.size.height-28-hamburgerButtonSize.height, width: hamburgerButtonSize.width, height: hamburgerButtonSize.height)
+        
+        let flashButtonSize = CGSizeMake(17, 25)
+        flashButton.frame = CGRect(x: 22, y: 0, width: flashButtonSize.width, height: flashButtonSize.height)
+        flashButton.center = CGPoint(x: flashButton.center.x, y: statusBarHeight/2)
+        
+        let flipButtonSize = CGSizeMake(24, 27)
     }
     
 }
