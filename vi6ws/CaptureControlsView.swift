@@ -51,7 +51,10 @@ class CaptureControlsView: UIView {
         recordButton?.clipsToBounds = true
         addSubview(recordButton!)
         
-        hamburgerButton.setBackgroundImage(UIImage(named: "hamburger"), forState: .Normal)
+        var hamburgerImage = UIImage(named: "hamburger")?.imageWithRenderingMode(.AlwaysTemplate)
+        hamburgerButton.setBackgroundImage(hamburgerImage, forState: .Normal)
+        hamburgerButton.tintColor = UIColor.blackColor()
+        hamburgerButton.showsTouchWhenHighlighted = true
         addSubview(hamburgerButton)
         
         flashButton.setBackgroundImage(UIImage(named: "flash"), forState: .Normal)
