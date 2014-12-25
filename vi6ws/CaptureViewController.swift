@@ -26,6 +26,8 @@ class CaptureViewController: UIViewController {
         captureControlsView?.recordButton?.addTarget(self, action: "flash", forControlEvents: .TouchUpInside)
         
         captureControlsView!.hamburgerButton.addTarget(self, action: "hamburgerButtonPressed", forControlEvents: .TouchUpInside)
+        
+        captureControlsView!.flipButton.addTarget(self, action: "flipButtonPressed", forControlEvents: .TouchUpInside)
     }
 
     override func didReceiveMemoryWarning() {
@@ -73,6 +75,12 @@ class CaptureViewController: UIViewController {
         } else {
             slidingVC.resetTopViewAnimated(true)
         }
+    }
+    
+    func flipButtonPressed() {
+        var cameraPosition = captureView!.cameraPosition
+        cameraPosition = (cameraPosition == .Front) ? .Back : .Front
+        captureView!.setCameraPosition(cameraPosition)
     }
     
 }

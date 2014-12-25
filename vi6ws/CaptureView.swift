@@ -19,11 +19,13 @@ class CaptureView: UIView {
     override init(frame: CGRect) {
         cameraPosition = .Back
         super.init(frame: frame)
+        backgroundColor = UIColor.blackColor()
     }
     
     required init(coder aDecoder: NSCoder) {
         cameraPosition = .Back
         super.init(coder: aDecoder)
+        backgroundColor = UIColor.blackColor()
     }
     
     override func willMoveToSuperview(newSuperview: UIView?) {
