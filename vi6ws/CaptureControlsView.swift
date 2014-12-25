@@ -81,6 +81,8 @@ class CaptureControlsView: UIView {
         flashButton.center = CGPoint(x: flashButton.center.x, y: statusBarHeight/2)
         
         let flipButtonSize = CGSizeMake(24, 27)
+        flipButton.frame = CGRect(x: frame.size.width-22-flipButtonSize.width, y: 0, width: flipButtonSize.width, height: flipButtonSize.height)
+        flipButton.center = CGPoint(x: flipButton.center.x, y: statusBarHeight/2)
     }
     
 }
