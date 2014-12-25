@@ -342,6 +342,7 @@
 				INFOPLIST_FILE = vi6ws/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/vi6ws/vi6ws-Bridging-Header.h";
 			};
 			name = Debug;
@@ -353,6 +354,7 @@
 				INFOPLIST_FILE = vi6ws/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "c4dc83d6-d63a-464f-a3ea-f500439f8118";
 				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/vi6ws/vi6ws-Bridging-Header.h";
 			};
 			name = Release;
