@@ -58,6 +58,7 @@ class CaptureControlsView: UIView {
         addSubview(hamburgerButton)
         
         flashButton.setBackgroundImage(UIImage(named: "flash"), forState: .Normal)
+        flashButton.setBackgroundImage(UIImage(named: "flash-selected"), forState: .Selected)
         addSubview(flashButton)
         
         flipButton.setBackgroundImage(UIImage(named: "flip"), forState: .Normal)
