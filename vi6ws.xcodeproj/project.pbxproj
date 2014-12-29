@@ -22,6 +22,7 @@
 		68A457D01A49D68B005FB2FD /* FuturaBTHeavy.otf in Resources */ = {isa = PBXBuildFile; fileRef = 68A457CF1A49D68B005FB2FD /* FuturaBTHeavy.otf */; };
 		68B8B1591A3E933700DAAB61 /* CaptureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68B8B1581A3E933700DAAB61 /* CaptureView.swift */; };
 		68B8B15B1A3E934700DAAB61 /* CaptureControlsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68B8B15A1A3E934700DAAB61 /* CaptureControlsView.swift */; };
+		68D17BAC1A5113830062F8B2 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68D17BAB1A5113830062F8B2 /* Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +51,7 @@
 		68A457CF1A49D68B005FB2FD /* FuturaBTHeavy.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = FuturaBTHeavy.otf; sourceTree = "<group>"; };
 		68B8B1581A3E933700DAAB61 /* CaptureView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CaptureView.swift; sourceTree = "<group>"; };
 		68B8B15A1A3E934700DAAB61 /* CaptureControlsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CaptureControlsView.swift; sourceTree = "<group>"; };
+		68D17BAB1A5113830062F8B2 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,6 +86,7 @@
 			isa = PBXGroup;
 			children = (
 				6861ECD01A3E8E170044B90C /* AppDelegate.swift */,
+				68D17BAB1A5113830062F8B2 /* Extensions.swift */,
 				68A457CB1A49C64F005FB2FD /* Capture */,
 				68A457CA1A49C64A005FB2FD /* Drawer */,
 				6861ECD71A3E8E170044B90C /* Images.xcassets */,
@@ -237,6 +240,7 @@
 				6861ECD11A3E8E170044B90C /* AppDelegate.swift in Sources */,
 				68A457C91A49C618005FB2FD /* DrawerViewController.swift in Sources */,
 				68A457BB1A49C045005FB2FD /* ECSlidingInteractiveTransition.m in Sources */,
+				68D17BAC1A5113830062F8B2 /* Extensions.swift in Sources */,
 				68B8B1591A3E933700DAAB61 /* CaptureView.swift in Sources */,
 				68A457B91A49C045005FB2FD /* ECPercentDrivenInteractiveTransition.m in Sources */,
 				68A457BC1A49C045005FB2FD /* ECSlidingSegue.m in Sources */,
