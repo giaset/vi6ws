@@ -35,6 +35,12 @@ class WatermarkView: UIView {
         backButton.setTitleColor(UIColor.blackColor(), forState: .Normal)
         backButton.setTitleColor(UIColor.whiteColor(), forState: .Highlighted)
         addSubview(backButton)
+        
+        exportButton.setTitle("EXPORT", forState: .Normal)
+        exportButton.titleLabel!.font = UIFont(name: "FuturaBT-Heavy", size: 16)
+        exportButton.setTitleColor(UIColor.blackColor(), forState: .Normal)
+        exportButton.setTitleColor(UIColor.whiteColor(), forState: .Highlighted)
+        addSubview(exportButton)
     }
     
     override func layoutSubviews() {
@@ -47,6 +53,10 @@ class WatermarkView: UIView {
         backButton.sizeToFit()
         backButton.frame = CGRect(x: padding, y: 0, width: backButton.frame.size.width, height: backButton.frame.size.height)
         backButton.center = CGPointMake(backButton.center.x, statusBarHeight/2)
+        
+        exportButton.sizeToFit()
+        exportButton.frame = CGRect(x: frame.size.width-padding-exportButton.frame.size.width, y: 0, width: exportButton.frame.size.width, height: exportButton.frame.size.height)
+        exportButton.center = CGPointMake(exportButton.center.x, statusBarHeight/2)
     }
     
 }
