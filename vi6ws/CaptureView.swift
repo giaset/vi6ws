@@ -44,6 +44,7 @@ class CaptureView: UIView {
         setupDeviceInput(cameraPosition)
         
         imageOutput = AVCaptureStillImageOutput()
+        imageOutput!.outputSettings = [AVVideoCodecKey: AVVideoCodecJPEG]
         captureSession!.addOutput(imageOutput)
         
         setupVideoPreviewLayer()
