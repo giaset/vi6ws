@@ -46,7 +46,7 @@ class CaptureControlsView: UIView {
         
         recordButton = UIButton()
         recordButton?.setBackgroundImage(UIImage.imageWithColor(UIColor.blackColor()), forState: .Normal)
-        recordButton?.setBackgroundImage(UIImage.imageWithColor(UIColor.redColor()), forState: .Highlighted)
+        recordButton?.setBackgroundImage(UIImage.imageWithColor(UIColor.whiteColor()), forState: .Highlighted)
         recordButton?.layer.cornerRadius = recordButtonRadius
         recordButton?.clipsToBounds = true
         addSubview(recordButton!)
