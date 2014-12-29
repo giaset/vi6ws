@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AVFoundation
 
 class CaptureViewController: UIViewController {
 
@@ -23,7 +24,7 @@ class CaptureViewController: UIViewController {
         captureView = CaptureView(frame: CGRect(x: 0, y: 44, width: view.frame.size.width, height: view.frame.size.width))
         view.addSubview(captureView!)
         
-        captureControlsView?.recordButton?.addTarget(self, action: "flash", forControlEvents: .TouchUpInside)
+        captureControlsView?.recordButton?.addTarget(self, action: "recordButtonPressed", forControlEvents: .TouchUpInside)
         
         captureControlsView!.hamburgerButton.addTarget(self, action: "hamburgerButtonPressed", forControlEvents: .TouchUpInside)
         
@@ -86,6 +87,47 @@ class CaptureViewController: UIViewController {
     
     func flashButtonPressed() {
         captureControlsView!.flashButton.selected = !captureControlsView!.flashButton.selected
+    }
+    
+    func recordButtonPressed() {
+        flash()
+        
+        var imageOutput = captureView!.imageOutput!
+        
+        var connection = imageOutput.connectionWithMediaType(AVMediaTypeVideo)
+        if (connection.supportsVideoOrientation) {
+            connection.videoOrientation = currentVideoOrientation()
+        }
+        
+        imageOutput.captureStillImageAsynchronouslyFromConnection(connection, completionHandler: { (sampleBuffer: CMSampleBuffer!, error: NSError!) -> Void in
+            if (sampleBuffer != nil) {
+                let imageData = AVCaptureStillImageOutput.jpegStillImageNSDataRepresentation(sampleBuffer)
+                let image = UIImage(data: imageData)
+            }
+        })
+    }
+    
+    func currentVideoOrientation() -> AVCaptureVideoOrientation {
+        let deviceOrientation = UIDevice.currentDevice().orientation
+        var videoOrientation: AVCaptureVideoOrientation
+        
+        switch (deviceOrientation) {
+        case .PortraitUpsideDown:
+            videoOrientation = .PortraitUpsideDown
+            break
+            
+        case .LandscapeLeft:
+            videoOrientation = .LandscapeRight
+            break
+            
+        case .LandscapeRight:
+            videoOrientation = .LandscapeLeft
+            
+        default:
+            videoOrientation = .Portrait
+        }
+        
+        return videoOrientation
     }
     
 }

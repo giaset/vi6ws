@@ -13,6 +13,7 @@ class CaptureView: UIView {
     
     var captureSession: AVCaptureSession?
     var videoPreviewLayer: AVCaptureVideoPreviewLayer?
+    var imageOutput: AVCaptureStillImageOutput?
     
     var cameraPosition: AVCaptureDevicePosition
     
@@ -41,6 +42,10 @@ class CaptureView: UIView {
         tearDownCaptureSession()
         captureSession = AVCaptureSession()
         setupDeviceInput(cameraPosition)
+        
+        imageOutput = AVCaptureStillImageOutput()
+        captureSession!.addOutput(imageOutput)
+        
         setupVideoPreviewLayer()
         captureSession?.startRunning()
     }
@@ -55,6 +60,7 @@ class CaptureView: UIView {
         
         captureSession = nil
         videoPreviewLayer = nil
+        imageOutput = nil
     }
     
     func setupDeviceInput(position: AVCaptureDevicePosition) {
