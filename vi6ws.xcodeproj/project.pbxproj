@@ -23,6 +23,8 @@
 		68B8B1591A3E933700DAAB61 /* CaptureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68B8B1581A3E933700DAAB61 /* CaptureView.swift */; };
 		68B8B15B1A3E934700DAAB61 /* CaptureControlsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68B8B15A1A3E934700DAAB61 /* CaptureControlsView.swift */; };
 		68D17BAC1A5113830062F8B2 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68D17BAB1A5113830062F8B2 /* Extensions.swift */; };
+		68D17BAF1A5123B50062F8B2 /* WatermarkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68D17BAE1A5123B50062F8B2 /* WatermarkViewController.swift */; };
+		68D17BB11A51241C0062F8B2 /* WatermarkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68D17BB01A51241C0062F8B2 /* WatermarkView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,6 +54,8 @@
 		68B8B1581A3E933700DAAB61 /* CaptureView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CaptureView.swift; sourceTree = "<group>"; };
 		68B8B15A1A3E934700DAAB61 /* CaptureControlsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CaptureControlsView.swift; sourceTree = "<group>"; };
 		68D17BAB1A5113830062F8B2 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		68D17BAE1A5123B50062F8B2 /* WatermarkViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WatermarkViewController.swift; sourceTree = "<group>"; };
+		68D17BB01A51241C0062F8B2 /* WatermarkView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WatermarkView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,6 +93,7 @@
 				68D17BAB1A5113830062F8B2 /* Extensions.swift */,
 				68A457CB1A49C64F005FB2FD /* Capture */,
 				68A457CA1A49C64A005FB2FD /* Drawer */,
+				68D17BAD1A5123900062F8B2 /* Watermark */,
 				6861ECD71A3E8E170044B90C /* Images.xcassets */,
 				6861ECD91A3E8E170044B90C /* LaunchScreen.xib */,
 				68A457CE1A49D674005FB2FD /* Fonts */,
@@ -160,6 +165,15 @@
 				68A457CF1A49D68B005FB2FD /* FuturaBTHeavy.otf */,
 			);
 			name = Fonts;
+			sourceTree = "<group>";
+		};
+		68D17BAD1A5123900062F8B2 /* Watermark */ = {
+			isa = PBXGroup;
+			children = (
+				68D17BAE1A5123B50062F8B2 /* WatermarkViewController.swift */,
+				68D17BB01A51241C0062F8B2 /* WatermarkView.swift */,
+			);
+			name = Watermark;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -239,11 +253,13 @@
 				68A457BD1A49C045005FB2FD /* ECSlidingViewController.m in Sources */,
 				6861ECD11A3E8E170044B90C /* AppDelegate.swift in Sources */,
 				68A457C91A49C618005FB2FD /* DrawerViewController.swift in Sources */,
+				68D17BAF1A5123B50062F8B2 /* WatermarkViewController.swift in Sources */,
 				68A457BB1A49C045005FB2FD /* ECSlidingInteractiveTransition.m in Sources */,
 				68D17BAC1A5113830062F8B2 /* Extensions.swift in Sources */,
 				68B8B1591A3E933700DAAB61 /* CaptureView.swift in Sources */,
 				68A457B91A49C045005FB2FD /* ECPercentDrivenInteractiveTransition.m in Sources */,
 				68A457BC1A49C045005FB2FD /* ECSlidingSegue.m in Sources */,
+				68D17BB11A51241C0062F8B2 /* WatermarkView.swift in Sources */,
 				68B8B15B1A3E934700DAAB61 /* CaptureControlsView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

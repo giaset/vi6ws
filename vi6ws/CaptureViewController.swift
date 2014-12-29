@@ -103,6 +103,7 @@ class CaptureViewController: UIViewController {
             if (sampleBuffer != nil) {
                 let imageData = AVCaptureStillImageOutput.jpegStillImageNSDataRepresentation(sampleBuffer)
                 let image = UIImage(data: imageData)
+                self.navigationController!.pushViewController(WatermarkViewController(image: image!), animated: true)
             }
         })
     }
