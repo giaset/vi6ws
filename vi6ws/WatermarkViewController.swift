@@ -29,6 +29,12 @@ class WatermarkViewController: UIViewController {
         watermarkView = WatermarkView(frame: view.frame)
         watermarkView!.imageView.image = image
         view.addSubview(watermarkView!)
+        
+        watermarkView!.backButton.addTarget(self, action: "backButtonPressed", forControlEvents: .TouchUpInside)
+    }
+    
+    func backButtonPressed() {
+        navigationController!.popViewControllerAnimated(true)
     }
     
 }
