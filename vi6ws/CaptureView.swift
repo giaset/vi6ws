@@ -41,6 +41,7 @@ class CaptureView: UIView {
     func setupCaptureSession() {
         tearDownCaptureSession()
         captureSession = AVCaptureSession()
+        captureSession!.sessionPreset = AVCaptureSessionPresetPhoto
         setupDeviceInput(cameraPosition)
         
         imageOutput = AVCaptureStillImageOutput()
