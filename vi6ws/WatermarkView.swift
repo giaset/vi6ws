@@ -15,6 +15,8 @@ class WatermarkView: UIView {
     let backButton = UIButton()
     let exportButton = UIButton()
     
+    let watermarkView = UIImageView()
+    
     let pickerView: WatermarkPickerView?
     
     let statusBarHeight: CGFloat = 44
@@ -31,6 +33,7 @@ class WatermarkView: UIView {
         addSubview(backgroundView)
         
         addSubview(imageView)
+        addSubview(watermarkView)
         
         backButton.setTitle("BACK", forState: .Normal)
         backButton.titleLabel!.font = UIFont(name: "FuturaBT-Heavy", size: 16)
@@ -46,6 +49,13 @@ class WatermarkView: UIView {
         
         pickerView = WatermarkPickerView(frame: CGRectZero)
         addSubview(pickerView!)
+        
+        pickerView!.pickedImageClosure = {
+            (image: UIImage) in
+            self.watermarkView.image = image
+            self.watermarkView.frame = CGRect(x: 0, y: 0, width: image.size.width, height: image.size.height)
+            self.watermarkView.center = self.imageView.center
+        }
     }
     
     override func layoutSubviews() {
