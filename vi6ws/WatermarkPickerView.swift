@@ -37,6 +37,7 @@ class WatermarkPickerView: UIView {
             var button = UIButton()
             button.imageView!.contentMode = .ScaleAspectFit
             button.setImage(image["black"], forState: .Normal)
+            button.setImage(image["white"], forState: .Highlighted)
             button.addTarget(self, action: "buttonPressed:", forControlEvents: .TouchUpInside)
             addSubview(button)
             buttons.append(button)
@@ -59,7 +60,19 @@ class WatermarkPickerView: UIView {
     }
     
     func buttonPressed(button: UIButton) {
-        pickedImageClosure(image: button.imageForState(.Normal)!)
+        for otherButton in buttons {
+            if (otherButton != button) {
+                otherButton.selected = false
+            }
+        }
+        
+        button.selected = !button.selected
+        
+        if (button.selected) {
+            pickedImageClosure(image: button.imageForState(.Normal)!)
+        } else {
+            pickedImageClosure(image: button.imageForState(.Highlighted)!)
+        }
     }
     
 }
