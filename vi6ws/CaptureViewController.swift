@@ -104,13 +104,12 @@ class CaptureViewController: UIViewController {
                 let imageData = AVCaptureStillImageOutput.jpegStillImageNSDataRepresentation(sampleBuffer)
                 let image = UIImage(data: imageData)
                 
-                println(self.captureControlsView!.statusBarHeight)
-                println(self.view.frame.size.height)
-                var percentageHiddenByNavBar = self.captureControlsView!.statusBarHeight/self.view.frame.size.height
-                println(percentageHiddenByNavBar)
-                var rect = CGRect(x: 0, y: percentageHiddenByNavBar*image!.size.height, width: image!.size.width, height: image!.size.width)
-                println(rect)
-                var imageRef = CGImageCreateWithImageInRect(image!.CGImage, rect)
+                var previewRect = self.captureView!.videoPreviewLayer!.metadataOutputRectOfInterestForRect(self.captureView!.videoPreviewLayer!.bounds)
+                var imageWidth = CGFloat(CGImageGetWidth(image!.CGImage))
+                var imageHeight = CGFloat(CGImageGetHeight(image!.CGImage))
+                var cropRect = CGRect(x: previewRect.origin.x*imageWidth, y: previewRect.origin.y*imageHeight, width: previewRect.size.width*imageWidth, height: previewRect.size.height*imageHeight)
+                
+                var imageRef = CGImageCreateWithImageInRect(image!.CGImage, cropRect)
                 var croppedImage = UIImage(CGImage: imageRef, scale: image!.scale, orientation: image!.imageOrientation)
                 
                 self.navigationController!.pushViewController(WatermarkViewController(image: croppedImage!), animated: true)
