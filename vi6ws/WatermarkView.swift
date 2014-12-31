@@ -33,6 +33,12 @@ class WatermarkView: UIView {
         addSubview(backgroundView)
         
         addSubview(imageView)
+        
+        var pan = UIPanGestureRecognizer(target: self, action: "handlePan:")
+        watermarkView.addGestureRecognizer(pan)
+        /*var pinch = UIPinchGestureRecognizer(target: self, action: "handlePinch:")
+        watermarkView.addGestureRecognizer(pinch)*/
+        
         addSubview(watermarkView)
         
         backButton.setTitle("BACK", forState: .Normal)
@@ -75,6 +81,15 @@ class WatermarkView: UIView {
         exportButton.sizeToFit()
         exportButton.frame = CGRect(x: frame.size.width-padding-exportButton.frame.size.width, y: 0, width: exportButton.frame.size.width, height: exportButton.frame.size.height)
         exportButton.center = CGPointMake(exportButton.center.x, statusBarHeight/2)
+    }
+    
+    func handlePinch(recognizer: UIPinchGestureRecognizer) {
+        
+    }
+    
+    func handlePan(recognizer: UIPanGestureRecognizer) {
+        println("pan nigga")
+        watermarkView.center = watermarkView.center + recognizer.translationInView(self)
     }
     
 }

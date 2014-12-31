@@ -32,3 +32,8 @@ extension UIButton {
         return (CGRectContainsPoint(largerFrame, point)) ? self : nil
     }
 }
+
+// Define addition for CGPoints
+func + (left: CGPoint, right: CGPoint) -> CGPoint {
+    return CGPoint(x: left.x + right.x, y: left.y + right.y)
+}
