@@ -15,6 +15,8 @@ class WatermarkView: UIView {
     let backButton = UIButton()
     let exportButton = UIButton()
     
+    let pickerView: WatermarkPickerView?
+    
     let statusBarHeight: CGFloat = 44
     let padding: CGFloat = 15
     
@@ -41,6 +43,9 @@ class WatermarkView: UIView {
         exportButton.setTitleColor(UIColor.blackColor(), forState: .Normal)
         exportButton.setTitleColor(UIColor.whiteColor(), forState: .Highlighted)
         addSubview(exportButton)
+        
+        pickerView = WatermarkPickerView(frame: CGRectZero)
+        addSubview(pickerView!)
     }
     
     override func layoutSubviews() {
@@ -49,6 +54,9 @@ class WatermarkView: UIView {
         backgroundView.frame = frame
         
         imageView.frame = CGRect(x: 0, y: statusBarHeight, width: frame.size.width, height: frame.size.width)
+        
+        var startingY = CGRectGetMaxY(imageView.frame)
+        pickerView!.frame = CGRect(x: 0, y: startingY, width: frame.size.width, height: frame.size.height-startingY)
         
         backButton.sizeToFit()
         backButton.frame = CGRect(x: padding, y: 0, width: backButton.frame.size.width, height: backButton.frame.size.height)
