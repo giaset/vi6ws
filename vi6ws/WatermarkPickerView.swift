@@ -13,6 +13,8 @@ class WatermarkPickerView: UIView {
     let buttons = [UIButton]()
     let images = [[String: UIImage]]()
     
+    let separator = UIView()
+    
     var pickedImageClosure: (image: UIImage) -> ()
     
     required init(coder aDecoder: NSCoder) {
@@ -43,6 +45,9 @@ class WatermarkPickerView: UIView {
             addSubview(button)
             buttons.append(button)
         }
+        
+        separator.backgroundColor = UIColor(red: 0.698, green: 0.698, blue: 0.694, alpha: 1)
+        addSubview(separator)
     }
     
     override func layoutSubviews() {
@@ -58,6 +63,9 @@ class WatermarkPickerView: UIView {
                 buttons[i].frame = CGRectMake(buttonWidth, CGFloat(i-4)*buttonHeight, buttonWidth, buttonHeight)
             }
         }
+        
+        separator.frame = CGRect(x: 0, y: 0, width: 2, height: frame.height)
+        separator.center = CGPoint(x: frame.size.width/2, y: frame.size.height/2)
     }
     
     func buttonPressed(button: UIButton) {
