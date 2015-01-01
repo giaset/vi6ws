@@ -32,14 +32,17 @@ class WatermarkView: UIView {
         backgroundView = UIImageView(image: UIImage(named: "marble"))
         addSubview(backgroundView)
         
+        imageView.userInteractionEnabled = true
+        imageView.clipsToBounds = true
         addSubview(imageView)
         
+        watermarkView.userInteractionEnabled = true
         var pan = UIPanGestureRecognizer(target: self, action: "handlePan:")
         watermarkView.addGestureRecognizer(pan)
         /*var pinch = UIPinchGestureRecognizer(target: self, action: "handlePinch:")
         watermarkView.addGestureRecognizer(pinch)*/
         
-        addSubview(watermarkView)
+        imageView.addSubview(watermarkView)
         
         backButton.setTitle("BACK", forState: .Normal)
         backButton.titleLabel!.font = UIFont(name: "FuturaBT-Heavy", size: 16)
@@ -60,7 +63,7 @@ class WatermarkView: UIView {
             (image: UIImage) in
             self.watermarkView.image = image
             self.watermarkView.frame = CGRect(x: 0, y: 0, width: image.size.width, height: image.size.height)
-            self.watermarkView.center = self.imageView.center
+            self.watermarkView.center = CGPoint(x: self.imageView.bounds.size.width/2, y: self.imageView.bounds.size.height/2)
         }
     }
     
@@ -88,8 +91,7 @@ class WatermarkView: UIView {
     }
     
     func handlePan(recognizer: UIPanGestureRecognizer) {
-        println("pan nigga")
-        watermarkView.center = watermarkView.center + recognizer.translationInView(self)
+        watermarkView.center = recognizer.locationInView(self)
     }
     
 }
