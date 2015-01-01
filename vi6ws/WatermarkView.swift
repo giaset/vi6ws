@@ -22,6 +22,8 @@ class WatermarkView: UIView {
     let statusBarHeight: CGFloat = 44
     let padding: CGFloat = 15
     
+    var lastCenter = CGPointZero
+    
     required init(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -64,6 +66,7 @@ class WatermarkView: UIView {
             self.watermarkView.image = image
             self.watermarkView.frame = CGRect(x: 0, y: 0, width: image.size.width, height: image.size.height)
             self.watermarkView.center = CGPoint(x: self.imageView.bounds.size.width/2, y: self.imageView.bounds.size.height/2)
+            self.lastCenter = self.watermarkView.center
         }
     }
     
@@ -92,7 +95,11 @@ class WatermarkView: UIView {
     }
     
     func handlePan(recognizer: UIPanGestureRecognizer) {
-        watermarkView.center = recognizer.locationInView(self)
+        watermarkView.center = lastCenter + recognizer.translationInView(self)
+        
+        if (recognizer.state == .Ended) {
+            lastCenter = watermarkView.center
+        }
     }
     
 }
