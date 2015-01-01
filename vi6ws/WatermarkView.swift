@@ -39,8 +39,8 @@ class WatermarkView: UIView {
         watermarkView.userInteractionEnabled = true
         var pan = UIPanGestureRecognizer(target: self, action: "handlePan:")
         watermarkView.addGestureRecognizer(pan)
-        /*var pinch = UIPinchGestureRecognizer(target: self, action: "handlePinch:")
-        watermarkView.addGestureRecognizer(pinch)*/
+        var pinch = UIPinchGestureRecognizer(target: self, action: "handlePinch:")
+        watermarkView.addGestureRecognizer(pinch)
         
         imageView.addSubview(watermarkView)
         
@@ -87,7 +87,8 @@ class WatermarkView: UIView {
     }
     
     func handlePinch(recognizer: UIPinchGestureRecognizer) {
-        
+        watermarkView.transform = CGAffineTransformScale(watermarkView.transform, recognizer.scale, recognizer.scale)
+        recognizer.scale = 1
     }
     
     func handlePan(recognizer: UIPanGestureRecognizer) {
