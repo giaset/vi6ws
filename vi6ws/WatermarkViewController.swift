@@ -40,7 +40,13 @@ class WatermarkViewController: UIViewController {
     
     func exportButtonPressed() {
         SVProgressHUD.show()
-        UIImageWriteToSavedPhotosAlbum(watermarkView!.imageView.image, self, "image:didFinishSavingWithError:contextInfo:", nil)
+        
+        UIGraphicsBeginImageContextWithOptions(watermarkView!.imageView.bounds.size, true, 0.0)
+        watermarkView!.imageView.drawViewHierarchyInRect(watermarkView!.imageView.bounds, afterScreenUpdates: true)
+        var img = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        
+        UIImageWriteToSavedPhotosAlbum(img, self, "image:didFinishSavingWithError:contextInfo:", nil)
     }
     
     func image(image: UIImage, didFinishSavingWithError error: NSError, contextInfo:UnsafePointer<Void>) {
