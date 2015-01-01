@@ -31,10 +31,19 @@ class WatermarkViewController: UIViewController {
         view.addSubview(watermarkView!)
         
         watermarkView!.backButton.addTarget(self, action: "backButtonPressed", forControlEvents: .TouchUpInside)
+        watermarkView!.exportButton.addTarget(self, action: "exportImage", forControlEvents: .TouchUpInside)
     }
     
     func backButtonPressed() {
         navigationController!.popViewControllerAnimated(true)
+    }
+    
+    func exportImage() {
+        UIImageWriteToSavedPhotosAlbum(watermarkView!.imageView.image, self, "image:didFinishSavingWithError:contextInfo:", nil)
+    }
+    
+    func image(image: UIImage, didFinishSavingWithError error: NSError, contextInfo:UnsafePointer<Void>) {
+        
     }
     
 }
