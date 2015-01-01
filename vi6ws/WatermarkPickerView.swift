@@ -39,6 +39,7 @@ class WatermarkPickerView: UIView {
             button.setImage(image["black"], forState: .Normal)
             button.setImage(image["white"], forState: .Highlighted)
             button.addTarget(self, action: "buttonPressed:", forControlEvents: .TouchUpInside)
+            button.imageEdgeInsets = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
             addSubview(button)
             buttons.append(button)
         }
