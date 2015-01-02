@@ -8,7 +8,7 @@
 
 import UIKit
 
-class WatermarkView: UIView {
+class WatermarkView: UIView, UIGestureRecognizerDelegate {
     
     let backgroundView = UIImageView()
     let imageView = UIImageView()
@@ -40,9 +40,11 @@ class WatermarkView: UIView {
         
         watermarkView.userInteractionEnabled = true
         var pan = UIPanGestureRecognizer(target: self, action: "handlePan:")
+        pan.delegate = self
         watermarkView.addGestureRecognizer(pan)
         var pinch = UIPinchGestureRecognizer(target: self, action: "handlePinch:")
-        watermarkView.addGestureRecognizer(pinch)
+        pinch.delegate = self
+        imageView.addGestureRecognizer(pinch)
         
         imageView.addSubview(watermarkView)
         
@@ -100,6 +102,10 @@ class WatermarkView: UIView {
         if (recognizer.state == .Ended) {
             lastCenter = watermarkView.center
         }
+    }
+    
+    func gestureRecognizer(gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWithGestureRecognizer otherGestureRecognizer: UIGestureRecognizer) -> Bool {
+        return true
     }
     
 }
