@@ -13,13 +13,22 @@
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="marble" translatesAutoresizingMaskIntoConstraints="NO" id="45z-r2-04b">
                     <rect key="frame" x="0.0" y="0.0" width="480" height="480"/>
                 </imageView>
+                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" image="6GOD-black" translatesAutoresizingMaskIntoConstraints="NO" id="LVQ-Y3-iYp">
+                    <rect key="frame" x="139" y="93" width="203" height="294"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="294" id="5rf-cl-9zj"/>
+                        <constraint firstAttribute="width" constant="203" id="i12-8o-ouw"/>
+                    </constraints>
+                </imageView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="45z-r2-04b" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="6yp-Qg-jiu"/>
                 <constraint firstAttribute="trailing" secondItem="45z-r2-04b" secondAttribute="trailing" id="8eb-KE-9Ec"/>
+                <constraint firstAttribute="centerY" secondItem="LVQ-Y3-iYp" secondAttribute="centerY" constant="0.5" id="G9a-gg-2Or"/>
                 <constraint firstAttribute="bottom" secondItem="45z-r2-04b" secondAttribute="bottom" id="HS1-B2-Ujz"/>
                 <constraint firstItem="45z-r2-04b" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="MbX-Y6-gVj"/>
+                <constraint firstAttribute="centerX" secondItem="LVQ-Y3-iYp" secondAttribute="centerX" id="rfu-wK-AaG"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
@@ -27,6 +36,7 @@
         </view>
     </objects>
     <resources>
+        <image name="6GOD-black" width="291" height="421"/>
         <image name="marble" width="1211" height="2160"/>
     </resources>
 </document>
