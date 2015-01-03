@@ -29,9 +29,9 @@ class WatermarkPickerView: UIView {
         images.append(["white": UIImage(named: "6GOD-white")!, "black": UIImage(named: "6GOD-black")!])
         images.append(["white": UIImage(named: "6-white")!, "black": UIImage(named: "6-black")!])
         images.append(["white": UIImage(named: "owl-white")!, "black": UIImage(named: "owl-black")!])
-        images.append(["white": UIImage(named: "416-filled-white-small")!, "black": UIImage(named: "416-filled-black-small")!])
+        images.append(["white": UIImage(named: "VIEWS-white")!, "black": UIImage(named: "VIEWS-black")!])
         images.append(["white": UIImage(named: "topszn-white")!, "black": UIImage(named: "topszn-black")!])
-        images.append(["black": UIImage(named: "partynextdoor")!])
+        images.append(["white": UIImage(named: "bills-white")!, "black": UIImage(named: "bills-black")!])
         images.append(["white": UIImage(named: "ovosound-white")!, "black": UIImage(named: "ovosound-black")!])
         images.append(["white": UIImage(named: "majidjordan-white")!, "black": UIImage(named: "majidjordan-black")!])
         
