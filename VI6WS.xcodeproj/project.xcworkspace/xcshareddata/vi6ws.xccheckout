@@ -7,14 +7,14 @@
 	<key>IDESourceControlProjectIdentifier</key>
 	<string>0A7F8100-6536-4633-825A-A9FA47EEBE3D</string>
 	<key>IDESourceControlProjectName</key>
-	<string>vi6ws</string>
+	<string>VI6WS</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
 		<key>70E91F18F72AF8B8AC498FC8530ABC5731ABC476</key>
 		<string>https://github.com/giaset/vi6ws.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>vi6ws.xcodeproj</string>
+	<string>VI6WS.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>70E91F18F72AF8B8AC498FC8530ABC5731ABC476</key>
