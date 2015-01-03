@@ -87,6 +87,17 @@ class CaptureViewController: UIViewController {
     
     func flashButtonPressed() {
         captureControlsView!.flashButton.selected = !captureControlsView!.flashButton.selected
+        
+        if let captureDevice = captureView!.captureDevice {
+            var flashMode: AVCaptureFlashMode = (captureControlsView!.flashButton.selected) ? .On : .Off
+            if (captureDevice.isFlashModeSupported(flashMode)) {
+                var error: NSError?
+                if (captureDevice.lockForConfiguration(&error)) {
+                    captureDevice.flashMode = flashMode
+                    captureDevice.unlockForConfiguration()
+                }
+            }
+        }
     }
     
     func recordButtonPressed() {

@@ -14,6 +14,7 @@ class CaptureView: UIView {
     var captureSession: AVCaptureSession?
     var videoPreviewLayer: AVCaptureVideoPreviewLayer?
     var imageOutput: AVCaptureStillImageOutput?
+    var captureDevice: AVCaptureDevice?
     
     var cameraPosition: AVCaptureDevicePosition
     
@@ -73,6 +74,7 @@ class CaptureView: UIView {
                 if (error == nil) {
                     if (captureSession!.canAddInput(input)) {
                         captureSession?.addInput(input)
+                        captureDevice = device
                     } else {
                         println("Capture session can't add camera input")
                     }
