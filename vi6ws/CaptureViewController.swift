@@ -101,7 +101,7 @@ class CaptureViewController: UIViewController {
     }
     
     func recordButtonPressed() {
-        flash()
+        //flash()
         
         var imageOutput = captureView!.imageOutput!
         
