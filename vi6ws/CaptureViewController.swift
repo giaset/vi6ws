@@ -165,8 +165,16 @@ class CaptureViewController: UIViewController, UIImagePickerControllerDelegate, 
         presentViewController(imagePicker, animated: true, completion: nil)
     }
     
-/*optional func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [NSObject : AnyObject])
-optional func imagePickerControllerDidCancel(picker: UIImagePickerController)*/
+    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [NSObject : AnyObject]) {
+        
+        var editedImage = info[UIImagePickerControllerEditedImage] as UIImage?
+        
+        dismissViewControllerAnimated(true, completion: {
+            if let image = editedImage {
+                self.navigationController!.pushViewController(WatermarkViewController(image: image), animated: true)
+            }
+        })
+    }
 
 }
 
