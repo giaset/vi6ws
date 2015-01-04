@@ -18,6 +18,7 @@ class CaptureControlsView: UIView {
     let hamburgerButton = UIButton()
     let flashButton = UIButton()
     let flipButton = UIButton()
+    let importButton = UIButton()
     
     let statusBarHeight: CGFloat = 44
     let recordButtonRadius: CGFloat = 36
@@ -63,6 +64,10 @@ class CaptureControlsView: UIView {
         
         flipButton.setBackgroundImage(UIImage(named: "flip"), forState: .Normal)
         addSubview(flipButton)
+        
+        importButton.setBackgroundImage(UIImage(named: "import"), forState: .Normal)
+        importButton.showsTouchWhenHighlighted = true
+        addSubview(importButton)
     }
     
     override func layoutSubviews() {
@@ -87,6 +92,10 @@ class CaptureControlsView: UIView {
         let flipButtonSize = CGSizeMake(24, 27)
         flipButton.frame = CGRect(x: frame.size.width-22-flipButtonSize.width, y: 0, width: flipButtonSize.width, height: flipButtonSize.height)
         flipButton.center = CGPoint(x: flipButton.center.x, y: statusBarHeight/2)
+        
+        let importButtonSize = CGSize(width: 29, height: 23)
+        importButton.frame = CGRect(x: frame.size.width-importButtonSize.width-22, y: 0, width: importButtonSize.width, height: importButtonSize.height)
+        importButton.center = CGPoint(x: importButton.center.x, y: hamburgerButton.center.y)
     }
     
 }
