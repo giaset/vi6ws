@@ -8,12 +8,15 @@
 
 import UIKit
 import AVFoundation
+import MobileCoreServices
 
-class CaptureViewController: UIViewController {
+class CaptureViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
     var captureControlsView: CaptureControlsView?
     var captureView: CaptureView?
     var flashView: UIView?
+    
+    let imagePicker = UIImagePickerController()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,6 +33,13 @@ class CaptureViewController: UIViewController {
         
         captureControlsView!.flipButton.addTarget(self, action: "flipButtonPressed", forControlEvents: .TouchUpInside)
         captureControlsView!.flashButton.addTarget(self, action: "flashButtonPressed", forControlEvents: .TouchUpInside)
+        
+        imagePicker.delegate = self
+        imagePicker.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
+        imagePicker.allowsEditing = true
+        imagePicker.mediaTypes = [kUTTypeImage]
+        
+        captureControlsView!.importButton.addTarget(self, action: "importButtonPressed", forControlEvents: .TouchUpInside)
     }
 
     override func didReceiveMemoryWarning() {
@@ -151,5 +161,12 @@ class CaptureViewController: UIViewController {
         return videoOrientation
     }
     
+    func importButtonPressed() {
+        presentViewController(imagePicker, animated: true, completion: nil)
+    }
+    
+/*optional func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [NSObject : AnyObject])
+optional func imagePickerControllerDidCancel(picker: UIImagePickerController)*/
+
 }
 
