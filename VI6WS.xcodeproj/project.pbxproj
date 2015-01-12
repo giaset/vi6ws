@@ -30,6 +30,7 @@
 		68D17BAC1A5113830062F8B2 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68D17BAB1A5113830062F8B2 /* Extensions.swift */; };
 		68D17BAF1A5123B50062F8B2 /* WatermarkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68D17BAE1A5123B50062F8B2 /* WatermarkViewController.swift */; };
 		68D17BB11A51241C0062F8B2 /* WatermarkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68D17BB01A51241C0062F8B2 /* WatermarkView.swift */; };
+		68F2050F1A63848000DC2D5B /* ExportView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68F2050E1A63848000DC2D5B /* ExportView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -69,6 +70,7 @@
 		68D17BAB1A5113830062F8B2 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		68D17BAE1A5123B50062F8B2 /* WatermarkViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WatermarkViewController.swift; sourceTree = "<group>"; };
 		68D17BB01A51241C0062F8B2 /* WatermarkView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WatermarkView.swift; sourceTree = "<group>"; };
+		68F2050E1A63848000DC2D5B /* ExportView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExportView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,6 +124,7 @@
 				68A457CB1A49C64F005FB2FD /* Capture */,
 				68A457CA1A49C64A005FB2FD /* Drawer */,
 				68D17BAD1A5123900062F8B2 /* Watermark */,
+				68F2050D1A63846700DC2D5B /* Export */,
 				6861ECD71A3E8E170044B90C /* Images.xcassets */,
 				6861ECD91A3E8E170044B90C /* LaunchScreen.xib */,
 				68A457CE1A49D674005FB2FD /* Fonts */,
@@ -206,6 +209,14 @@
 			name = Watermark;
 			sourceTree = "<group>";
 		};
+		68F2050D1A63846700DC2D5B /* Export */ = {
+			isa = PBXGroup;
+			children = (
+				68F2050E1A63848000DC2D5B /* ExportView.swift */,
+			);
+			name = Export;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -279,6 +290,7 @@
 			files = (
 				6861ECD31A3E8E170044B90C /* CaptureViewController.swift in Sources */,
 				68A457BA1A49C045005FB2FD /* ECSlidingAnimationController.m in Sources */,
+				68F2050F1A63848000DC2D5B /* ExportView.swift in Sources */,
 				68A457BE1A49C045005FB2FD /* UIViewController+ECSlidingViewController.m in Sources */,
 				68A457CD1A49C67A005FB2FD /* DrawerView.swift in Sources */,
 				68A457BD1A49C045005FB2FD /* ECSlidingViewController.m in Sources */,
