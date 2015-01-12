@@ -37,6 +37,8 @@ class WatermarkViewController: UIViewController {
         
         watermarkView!.backButton.addTarget(self, action: "backButtonPressed", forControlEvents: .TouchUpInside)
         watermarkView!.exportButton.addTarget(self, action: "exportButtonPressed", forControlEvents: .TouchUpInside)
+        
+        exportView!.closeButton.addTarget(self, action: "closeButtonPressed", forControlEvents: .TouchUpInside)
     }
     
     func backButtonPressed() {
@@ -44,8 +46,7 @@ class WatermarkViewController: UIViewController {
     }
     
     func exportButtonPressed() {
-        UIView.animateWithDuration(0.3, animations: {
-            self.exportView!.frame.origin.y = self.view.frame.height-self.exportView!.frame.height
+        UIView.animateWithDuration(0.3, delay: 0, usingSpringWithDamping: 0.8, initialSpringVelocity: 1, options: nil, animations: { self.exportView!.frame.origin.y = self.view.frame.height-self.exportView!.frame.height }, completion: { finished in
             self.watermarkView!.backButton.enabled = false
             self.watermarkView!.backButton.alpha = 0.3
             self.watermarkView!.exportButton.enabled = false
@@ -60,6 +61,15 @@ class WatermarkViewController: UIViewController {
         UIGraphicsEndImageContext()
         
         UIImageWriteToSavedPhotosAlbum(img, self, "image:didFinishSavingWithError:contextInfo:", nil)*/
+    }
+    
+    func closeButtonPressed() {
+        UIView.animateWithDuration(0.3, delay: 0, usingSpringWithDamping: 0.8, initialSpringVelocity: 1, options: nil, animations: { self.exportView!.frame.origin.y = self.view.frame.height }, completion: { finished in
+            self.watermarkView!.backButton.enabled = true
+            self.watermarkView!.backButton.alpha = 1
+            self.watermarkView!.exportButton.enabled = true
+            self.watermarkView!.exportButton.alpha = 1
+        })
     }
     
     func image(image: UIImage, didFinishSavingWithError error: NSError, contextInfo:UnsafePointer<Void>) {

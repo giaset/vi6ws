@@ -39,6 +39,9 @@ class ExportView: UIView {
         closeButtonDimView.alpha = 0.3
         addSubview(closeButtonDimView)
         
+        closeButton.setImage(UIImage(named: "close"), forState: .Normal)
+        addSubview(closeButton)
+        
         let separatorColor = UIColor(red: 0.129, green: 0.154, blue: 0.169, alpha: 1) /*#21272b*/
         
         separator1.backgroundColor = separatorColor
@@ -63,6 +66,8 @@ class ExportView: UIView {
         let buttonHeight = (frame.height - (3*separatorHeight))/5
         
         closeButtonDimView.frame = CGRect(x: 0, y: 0, width: frame.width, height: buttonHeight)
+        
+        closeButton.frame = CGRect(x: 0, y: 0, width: buttonHeight, height: buttonHeight)
         
         separator1.frame = CGRect(x: 0, y: 2*buttonHeight, width: frame.width, height: separatorHeight)
         separator2.frame = CGRect(x: 0, y: 3*buttonHeight+separatorHeight, width: frame.width, height: separatorHeight)
