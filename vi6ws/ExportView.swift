@@ -51,6 +51,9 @@ class ExportView: UIView {
         cameraRollButton.setTitleColor(UIColor.blackColor(), forState: .Highlighted)
         cameraRollButton.titleLabel!.font = UIFont(name: "FuturaBT-Heavy", size: 16)
         cameraRollButton.setBackgroundImage(UIImage.imageWithColor(transparentBlack), forState: .Highlighted)
+        cameraRollButton.contentHorizontalAlignment = .Left
+        cameraRollButton.contentEdgeInsets = UIEdgeInsets(top: 0, left: 21, bottom: 0, right: 0)
+        cameraRollButton.titleEdgeInsets = UIEdgeInsets(top: 0, left: 18, bottom: 0, right: 0)
         addSubview(cameraRollButton)
         
         instagramButton.setImage(UIImage(named: "instagram"), forState: .Normal)
@@ -59,6 +62,9 @@ class ExportView: UIView {
         instagramButton.setTitleColor(UIColor.blackColor(), forState: .Highlighted)
         instagramButton.titleLabel!.font = UIFont(name: "FuturaBT-Heavy", size: 16)
         instagramButton.setBackgroundImage(UIImage.imageWithColor(transparentBlack), forState: .Highlighted)
+        instagramButton.contentHorizontalAlignment = .Left
+        instagramButton.contentEdgeInsets = UIEdgeInsets(top: 0, left: 21, bottom: 0, right: 0)
+        instagramButton.titleEdgeInsets = UIEdgeInsets(top: 0, left: 18, bottom: 0, right: 0)
         addSubview(instagramButton)
         
         facebookButton.setImage(UIImage(named: "facebook"), forState: .Normal)
@@ -67,6 +73,9 @@ class ExportView: UIView {
         facebookButton.setTitleColor(UIColor.blackColor(), forState: .Highlighted)
         facebookButton.titleLabel!.font = UIFont(name: "FuturaBT-Heavy", size: 16)
         facebookButton.setBackgroundImage(UIImage.imageWithColor(transparentBlack), forState: .Highlighted)
+        facebookButton.contentHorizontalAlignment = .Left
+        facebookButton.contentEdgeInsets = UIEdgeInsets(top: 0, left: 21, bottom: 0, right: 0)
+        facebookButton.titleEdgeInsets = UIEdgeInsets(top: 0, left: 18, bottom: 0, right: 0)
         addSubview(facebookButton)
         
         twitterButton.setImage(UIImage(named: "twitter"), forState: .Normal)
@@ -75,6 +84,9 @@ class ExportView: UIView {
         twitterButton.setTitleColor(UIColor.blackColor(), forState: .Highlighted)
         twitterButton.titleLabel!.font = UIFont(name: "FuturaBT-Heavy", size: 16)
         twitterButton.setBackgroundImage(UIImage.imageWithColor(transparentBlack), forState: .Highlighted)
+        twitterButton.contentHorizontalAlignment = .Left
+        twitterButton.contentEdgeInsets = UIEdgeInsets(top: 0, left: 21, bottom: 0, right: 0)
+        twitterButton.titleEdgeInsets = UIEdgeInsets(top: 0, left: 18, bottom: 0, right: 0)
         addSubview(twitterButton)
         
         let separatorColor = UIColor(red: 0.129, green: 0.154, blue: 0.169, alpha: 1) /*#21272b*/
