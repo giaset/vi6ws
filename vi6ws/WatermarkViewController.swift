@@ -31,7 +31,7 @@ class WatermarkViewController: UIViewController {
         watermarkView!.imageView.image = image
         view.addSubview(watermarkView!)
         
-        let exportViewHeight = view.frame.height-44-view.frame.width
+        let exportViewHeight = view.frame.height/2
         exportView = ExportView(frame: CGRect(x: 0, y: view.frame.height, width: view.frame.width, height: exportViewHeight))
         view.addSubview(exportView!)
         
@@ -39,6 +39,7 @@ class WatermarkViewController: UIViewController {
         watermarkView!.exportButton.addTarget(self, action: "exportButtonPressed", forControlEvents: .TouchUpInside)
         
         exportView!.closeButton.addTarget(self, action: "closeButtonPressed", forControlEvents: .TouchUpInside)
+        exportView!.cameraRollButton.addTarget(self, action: "cameraRollButtonPressed", forControlEvents: .TouchUpInside)
     }
     
     func backButtonPressed() {
@@ -46,34 +47,52 @@ class WatermarkViewController: UIViewController {
     }
     
     func exportButtonPressed() {
-        UIView.animateWithDuration(0.3, delay: 0, usingSpringWithDamping: 0.8, initialSpringVelocity: 1, options: nil, animations: { self.exportView!.frame.origin.y = self.view.frame.height-self.exportView!.frame.height }, completion: { finished in
-            self.watermarkView!.backButton.enabled = false
-            self.watermarkView!.backButton.alpha = 0.3
-            self.watermarkView!.exportButton.enabled = false
-            self.watermarkView!.exportButton.alpha = 0.3
-        })
+        UIView.animateWithDuration(0.3, delay: 0, options: .CurveEaseOut,
+            animations: {
+                self.exportView!.frame.origin.y = self.view.frame.height-self.exportView!.frame.height
+            }, completion: nil)
         
-        /*SVProgressHUD.show()
+        self.watermarkView!.backButton.enabled = false
+        self.watermarkView!.backButton.alpha = 0.3
+        self.watermarkView!.exportButton.enabled = false
+        self.watermarkView!.exportButton.alpha = 0.3
         
+        self.watermarkView!.watermarkView.userInteractionEnabled = false
+    }
+    
+    func generateImage() -> UIImage {
         UIGraphicsBeginImageContextWithOptions(watermarkView!.imageView.bounds.size, true, 0.0)
         watermarkView!.imageView.drawViewHierarchyInRect(watermarkView!.imageView.bounds, afterScreenUpdates: true)
         var img = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
         
-        UIImageWriteToSavedPhotosAlbum(img, self, "image:didFinishSavingWithError:contextInfo:", nil)*/
+        return img
     }
     
     func closeButtonPressed() {
-        UIView.animateWithDuration(0.3, delay: 0, usingSpringWithDamping: 0.8, initialSpringVelocity: 1, options: nil, animations: { self.exportView!.frame.origin.y = self.view.frame.height }, completion: { finished in
-            self.watermarkView!.backButton.enabled = true
-            self.watermarkView!.backButton.alpha = 1
-            self.watermarkView!.exportButton.enabled = true
-            self.watermarkView!.exportButton.alpha = 1
-        })
+        UIView.animateWithDuration(0.3, delay: 0, options: .CurveEaseOut,
+            animations: {
+                self.exportView!.frame.origin.y = self.view.frame.height
+            }, completion: nil)
+        
+        self.watermarkView!.backButton.enabled = true
+        self.watermarkView!.backButton.alpha = 1
+        self.watermarkView!.exportButton.enabled = true
+        self.watermarkView!.exportButton.alpha = 1
+        
+        self.watermarkView!.watermarkView.userInteractionEnabled = true
     }
     
     func image(image: UIImage, didFinishSavingWithError error: NSError, contextInfo:UnsafePointer<Void>) {
-        SVProgressHUD.showSuccessWithStatus("Successfully exported image")
+        SVProgressHUD.showSuccessWithStatus("Successfully saved image to camera roll")
+    }
+    
+    func cameraRollButtonPressed() {
+        SVProgressHUD.show()
+        
+        let img = generateImage()
+        
+        UIImageWriteToSavedPhotosAlbum(img, self, "image:didFinishSavingWithError:contextInfo:", nil)
     }
     
 }

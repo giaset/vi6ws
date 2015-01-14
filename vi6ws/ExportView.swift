@@ -42,6 +42,41 @@ class ExportView: UIView {
         closeButton.setImage(UIImage(named: "close"), forState: .Normal)
         addSubview(closeButton)
         
+        let textColor = UIColor(red: 0.2, green: 0.2, blue: 0.2, alpha: 1) /*#333333*/
+        let transparentBlack = UIColor(red: 0.055, green: 0.063, blue: 0.067, alpha: 0.3)
+        
+        cameraRollButton.setImage(UIImage(named: "camera_roll"), forState: .Normal)
+        cameraRollButton.setTitle("SAVE TO CAMERA ROLL", forState: .Normal)
+        cameraRollButton.setTitleColor(textColor, forState: .Normal)
+        cameraRollButton.setTitleColor(UIColor.blackColor(), forState: .Highlighted)
+        cameraRollButton.titleLabel!.font = UIFont(name: "FuturaBT-Heavy", size: 16)
+        cameraRollButton.setBackgroundImage(UIImage.imageWithColor(transparentBlack), forState: .Highlighted)
+        addSubview(cameraRollButton)
+        
+        instagramButton.setImage(UIImage(named: "instagram"), forState: .Normal)
+        instagramButton.setTitle("OPEN IN INSTAGRAM", forState: .Normal)
+        instagramButton.setTitleColor(textColor, forState: .Normal)
+        instagramButton.setTitleColor(UIColor.blackColor(), forState: .Highlighted)
+        instagramButton.titleLabel!.font = UIFont(name: "FuturaBT-Heavy", size: 16)
+        instagramButton.setBackgroundImage(UIImage.imageWithColor(transparentBlack), forState: .Highlighted)
+        addSubview(instagramButton)
+        
+        facebookButton.setImage(UIImage(named: "facebook"), forState: .Normal)
+        facebookButton.setTitle("OPEN IN FACEBOOK", forState: .Normal)
+        facebookButton.setTitleColor(textColor, forState: .Normal)
+        facebookButton.setTitleColor(UIColor.blackColor(), forState: .Highlighted)
+        facebookButton.titleLabel!.font = UIFont(name: "FuturaBT-Heavy", size: 16)
+        facebookButton.setBackgroundImage(UIImage.imageWithColor(transparentBlack), forState: .Highlighted)
+        addSubview(facebookButton)
+        
+        twitterButton.setImage(UIImage(named: "twitter"), forState: .Normal)
+        twitterButton.setTitle("OPEN IN TWITTER", forState: .Normal)
+        twitterButton.setTitleColor(textColor, forState: .Normal)
+        twitterButton.setTitleColor(UIColor.blackColor(), forState: .Highlighted)
+        twitterButton.titleLabel!.font = UIFont(name: "FuturaBT-Heavy", size: 16)
+        twitterButton.setBackgroundImage(UIImage.imageWithColor(transparentBlack), forState: .Highlighted)
+        addSubview(twitterButton)
+        
         let separatorColor = UIColor(red: 0.129, green: 0.154, blue: 0.169, alpha: 1) /*#21272b*/
         
         separator1.backgroundColor = separatorColor
@@ -69,9 +104,16 @@ class ExportView: UIView {
         
         closeButton.frame = CGRect(x: 0, y: 0, width: buttonHeight, height: buttonHeight)
         
+        cameraRollButton.frame = CGRect(x: 0, y: buttonHeight, width: frame.width, height: buttonHeight)
         separator1.frame = CGRect(x: 0, y: 2*buttonHeight, width: frame.width, height: separatorHeight)
+        
+        instagramButton.frame = CGRect(x: 0, y: 2*buttonHeight+separatorHeight, width: frame.width, height: buttonHeight)
         separator2.frame = CGRect(x: 0, y: 3*buttonHeight+separatorHeight, width: frame.width, height: separatorHeight)
+        
+        facebookButton.frame = CGRect(x: 0, y: 3*buttonHeight+2*separatorHeight, width: frame.width, height: buttonHeight)
         separator3.frame = CGRect(x: 0, y: 4*buttonHeight+(2*separatorHeight), width: frame.width, height: separatorHeight)
+        
+        twitterButton.frame = CGRect(x: 0, y: 4*buttonHeight+3*separatorHeight, width: frame.width, height: buttonHeight)
     }
     
 }
