@@ -66,7 +66,22 @@ class WatermarkView: UIView, UIGestureRecognizerDelegate {
         pickerView!.pickedImageClosure = {
             (image: UIImage) in
             self.watermarkView.image = image
-            self.watermarkView.frame = CGRect(x: 0, y: 0, width: image.size.width, height: image.size.height)
+            
+            let imageViewSize = self.imageView.frame.size
+            let imageSize = image.size
+            
+            var watermarkSize = image.size
+            
+            if (imageSize.width > imageViewSize.width || imageSize.height > imageViewSize.height) {
+                let widthRatio = imageViewSize.width/imageSize.width
+                let heightRatio = imageViewSize.height/imageSize.height
+                
+                let scale = min(widthRatio, heightRatio)
+                
+                watermarkSize = CGSize(width: watermarkSize.width*scale, height: watermarkSize.height*scale)
+            }
+            
+            self.watermarkView.frame = CGRect(x: 0, y: 0, width: watermarkSize.width, height: watermarkSize.height)
             self.watermarkView.center = CGPoint(x: self.imageView.bounds.size.width/2, y: self.imageView.bounds.size.height/2)
             self.lastCenter = self.watermarkView.center
         }
