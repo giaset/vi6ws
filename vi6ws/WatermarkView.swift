@@ -39,12 +39,18 @@ class WatermarkView: UIView, UIGestureRecognizerDelegate {
         addSubview(imageView)
         
         watermarkView.userInteractionEnabled = true
+        
         var pan = UIPanGestureRecognizer(target: self, action: "handlePan:")
         pan.delegate = self
         watermarkView.addGestureRecognizer(pan)
+        
         var pinch = UIPinchGestureRecognizer(target: self, action: "handlePinch:")
         pinch.delegate = self
         imageView.addGestureRecognizer(pinch)
+        
+        var rotate = UIRotationGestureRecognizer(target: self, action: "handleRotation:")
+        rotate.delegate = self
+        imageView.addGestureRecognizer(rotate)
         
         imageView.addSubview(watermarkView)
         
@@ -117,6 +123,11 @@ class WatermarkView: UIView, UIGestureRecognizerDelegate {
         if (recognizer.state == .Ended) {
             lastCenter = watermarkView.center
         }
+    }
+    
+    func handleRotation(recognizer: UIRotationGestureRecognizer) {
+        watermarkView.transform = CGAffineTransformRotate(watermarkView.transform, recognizer.rotation)
+        recognizer.rotation = 0
     }
     
     func gestureRecognizer(gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWithGestureRecognizer otherGestureRecognizer: UIGestureRecognizer) -> Bool {
