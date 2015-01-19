@@ -11,7 +11,6 @@ import UIKit
 class TextView: UIView {
     
     let backgroundView = UIImageView()
-    let scrollView = UIScrollView()
     let textView = UITextView()
     let backButton = UIButton()
     
@@ -29,6 +28,13 @@ class TextView: UIView {
         backButton.setTitleColor(UIColor.blackColor(), forState: .Normal)
         backButton.setTitleColor(UIColor.whiteColor(), forState: .Highlighted)
         addSubview(backButton)
+        
+        textView.font = UIFont(name: "FuturaBT-Heavy", size: 16)
+        textView.backgroundColor = UIColor.clearColor()
+        textView.textContainer.lineFragmentPadding = 0
+        textView.textContainerInset = UIEdgeInsetsZero
+        textView.editable = false
+        addSubview(textView)
     }
     
     override func layoutSubviews() {
@@ -39,6 +45,8 @@ class TextView: UIView {
         backButton.sizeToFit()
         backButton.frame = CGRect(x: padding, y: 0, width: backButton.frame.size.width, height: backButton.frame.size.height)
         backButton.center = CGPointMake(backButton.center.x, statusBarHeight/2)
+        
+        textView.frame = CGRect(x: padding, y: statusBarHeight, width: frame.width-2*padding, height: frame.height-statusBarHeight)
     }
 
     required init(coder aDecoder: NSCoder) {
@@ -46,7 +54,7 @@ class TextView: UIView {
     }
     
     func setText(text: String) {
-        textView.text = text
+        textView.text = text.uppercaseString
     }
     
 }

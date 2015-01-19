@@ -29,11 +29,13 @@ class TextViewController: UIViewController {
         textView = TextView(frame: view.frame)
         view.addSubview(textView!)
         
+        textView!.setText(self.text!)
+        
         textView!.backButton.addTarget(self, action: "backButtonPressed", forControlEvents: .TouchUpInside)
     }
     
     func backButtonPressed() {
-        navigationController!.popViewControllerAnimated(true)
+        navigationController!.popViewControllerAnimated(false)
     }
     
 }

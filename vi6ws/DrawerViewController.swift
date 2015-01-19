@@ -44,7 +44,7 @@ class DrawerViewController: UIViewController {
         
         var mainNavController = slidingVC.topViewController as UINavigationController
         
-        slidingVC.resetTopViewAnimated(true, onComplete: {mainNavController.pushViewController(vc, animated: true)})
+        slidingVC.resetTopViewAnimated(true, onComplete: {mainNavController.pushViewController(vc, animated: false)})
     }
     
 }
