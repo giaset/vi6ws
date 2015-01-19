@@ -25,6 +25,8 @@
 		68A457C91A49C618005FB2FD /* DrawerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68A457C81A49C618005FB2FD /* DrawerViewController.swift */; };
 		68A457CD1A49C67A005FB2FD /* DrawerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68A457CC1A49C67A005FB2FD /* DrawerView.swift */; };
 		68A457D01A49D68B005FB2FD /* FuturaBTHeavy.otf in Resources */ = {isa = PBXBuildFile; fileRef = 68A457CF1A49D68B005FB2FD /* FuturaBTHeavy.otf */; };
+		68B1D4B11A6CAD8C001043D6 /* TextViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68B1D4B01A6CAD8C001043D6 /* TextViewController.swift */; };
+		68B1D4B31A6CAEC5001043D6 /* TextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68B1D4B21A6CAEC5001043D6 /* TextView.swift */; };
 		68B8B1591A3E933700DAAB61 /* CaptureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68B8B1581A3E933700DAAB61 /* CaptureView.swift */; };
 		68B8B15B1A3E934700DAAB61 /* CaptureControlsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68B8B15A1A3E934700DAAB61 /* CaptureControlsView.swift */; };
 		68D17BAC1A5113830062F8B2 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68D17BAB1A5113830062F8B2 /* Extensions.swift */; };
@@ -65,6 +67,8 @@
 		68A457C81A49C618005FB2FD /* DrawerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrawerViewController.swift; sourceTree = "<group>"; };
 		68A457CC1A49C67A005FB2FD /* DrawerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrawerView.swift; sourceTree = "<group>"; };
 		68A457CF1A49D68B005FB2FD /* FuturaBTHeavy.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = FuturaBTHeavy.otf; sourceTree = "<group>"; };
+		68B1D4B01A6CAD8C001043D6 /* TextViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextViewController.swift; sourceTree = "<group>"; };
+		68B1D4B21A6CAEC5001043D6 /* TextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextView.swift; sourceTree = "<group>"; };
 		68B8B1581A3E933700DAAB61 /* CaptureView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CaptureView.swift; sourceTree = "<group>"; };
 		68B8B15A1A3E934700DAAB61 /* CaptureControlsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CaptureControlsView.swift; sourceTree = "<group>"; };
 		68D17BAB1A5113830062F8B2 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
@@ -125,6 +129,7 @@
 				68A457CA1A49C64A005FB2FD /* Drawer */,
 				68D17BAD1A5123900062F8B2 /* Watermark */,
 				68F2050D1A63846700DC2D5B /* Export */,
+				68B1D4AF1A6CAD4D001043D6 /* Text */,
 				6861ECD71A3E8E170044B90C /* Images.xcassets */,
 				6861ECD91A3E8E170044B90C /* LaunchScreen.xib */,
 				68A457CE1A49D674005FB2FD /* Fonts */,
@@ -197,6 +202,15 @@
 				68A457CF1A49D68B005FB2FD /* FuturaBTHeavy.otf */,
 			);
 			name = Fonts;
+			sourceTree = "<group>";
+		};
+		68B1D4AF1A6CAD4D001043D6 /* Text */ = {
+			isa = PBXGroup;
+			children = (
+				68B1D4B01A6CAD8C001043D6 /* TextViewController.swift */,
+				68B1D4B21A6CAEC5001043D6 /* TextView.swift */,
+			);
+			name = Text;
 			sourceTree = "<group>";
 		};
 		68D17BAD1A5123900062F8B2 /* Watermark */ = {
@@ -291,6 +305,7 @@
 				6861ECD31A3E8E170044B90C /* CaptureViewController.swift in Sources */,
 				68A457BA1A49C045005FB2FD /* ECSlidingAnimationController.m in Sources */,
 				68F2050F1A63848000DC2D5B /* ExportView.swift in Sources */,
+				68B1D4B31A6CAEC5001043D6 /* TextView.swift in Sources */,
 				68A457BE1A49C045005FB2FD /* UIViewController+ECSlidingViewController.m in Sources */,
 				68A457CD1A49C67A005FB2FD /* DrawerView.swift in Sources */,
 				68A457BD1A49C045005FB2FD /* ECSlidingViewController.m in Sources */,
@@ -303,6 +318,7 @@
 				68D17BAC1A5113830062F8B2 /* Extensions.swift in Sources */,
 				68B8B1591A3E933700DAAB61 /* CaptureView.swift in Sources */,
 				68571B891A54776A00A8EC7B /* WatermarkPickerView.swift in Sources */,
+				68B1D4B11A6CAD8C001043D6 /* TextViewController.swift in Sources */,
 				68A457B91A49C045005FB2FD /* ECPercentDrivenInteractiveTransition.m in Sources */,
 				68A457BC1A49C045005FB2FD /* ECSlidingSegue.m in Sources */,
 				68D17BB11A51241C0062F8B2 /* WatermarkView.swift in Sources */,
