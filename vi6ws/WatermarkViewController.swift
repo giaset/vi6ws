@@ -15,6 +15,8 @@ class WatermarkViewController: UIViewController {
     
     var image: UIImage
     
+    var documentInteractionController: UIDocumentInteractionController?
+    
     required init(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -40,6 +42,7 @@ class WatermarkViewController: UIViewController {
         
         exportView!.closeButton.addTarget(self, action: "closeButtonPressed", forControlEvents: .TouchUpInside)
         exportView!.cameraRollButton.addTarget(self, action: "cameraRollButtonPressed", forControlEvents: .TouchUpInside)
+        exportView!.instagramButton.addTarget(self, action: "instagramButtonPressed", forControlEvents: .TouchUpInside)
     }
     
     func backButtonPressed() {
@@ -93,6 +96,24 @@ class WatermarkViewController: UIViewController {
         let img = generateImage()
         
         UIImageWriteToSavedPhotosAlbum(img, self, "image:didFinishSavingWithError:contextInfo:", nil)
+    }
+    
+    func instagramButtonPressed() {
+        if (UIApplication.sharedApplication().canOpenURL(NSURL(string: "instagram://")!)) {
+            let savePath = NSHomeDirectory().stringByAppendingPathComponent("Documents/image.igo")
+            
+            let img = generateImage()
+            
+            UIImageJPEGRepresentation(img, 1.0).writeToFile(savePath, atomically: true)
+            
+            let instagramImageHookFile = NSURL(string: "file://"+savePath)
+            
+            documentInteractionController = UIDocumentInteractionController(URL: instagramImageHookFile!)
+            documentInteractionController!.UTI = "com.instagram.exclusivegram"
+            documentInteractionController!.annotation = [ "InstagramCaption": "#VI6WS" ]
+            
+            documentInteractionController!.presentOpenInMenuFromRect(CGRectZero, inView: view, animated: true)
+        }
     }
     
 }
