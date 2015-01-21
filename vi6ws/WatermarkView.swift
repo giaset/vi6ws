@@ -72,6 +72,7 @@ class WatermarkView: UIView, UIGestureRecognizerDelegate {
         pickerView!.pickedImageClosure = {
             (image: UIImage) in
             self.watermarkView.image = image
+            self.watermarkView.transform = CGAffineTransformIdentity; // must reset the transform
             
             let imageViewSize = self.imageView.frame.size
             let imageSize = image.size
