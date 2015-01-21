@@ -167,13 +167,24 @@ class CaptureViewController: UIViewController, UIImagePickerControllerDelegate, 
     
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [NSObject : AnyObject]) {
         
-        var editedImage = info[UIImagePickerControllerEditedImage] as UIImage?
+        let editedImage = info[UIImagePickerControllerEditedImage] as UIImage?
+        let cropRect = info[UIImagePickerControllerCropRect]!.CGRectValue()
         
-        dismissViewControllerAnimated(true, completion: {
-            if let image = editedImage {
+        if let image = editedImage {
+            
+            println(image.size)
+            println(cropRect)
+            
+            dismissViewControllerAnimated(true, completion: {
                 self.navigationController!.pushViewController(WatermarkViewController(image: image), animated: true)
-            }
-        })
+            })
+        } else {
+            dismissViewControllerAnimated(true, completion: nil)
+        }
+    }
+    
+    override func prefersStatusBarHidden() -> Bool {
+        return true
     }
 
 }

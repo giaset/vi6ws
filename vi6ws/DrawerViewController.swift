@@ -48,4 +48,8 @@ class DrawerViewController: UIViewController {
         slidingVC.resetTopViewAnimated(true, onComplete: {mainNavController.pushViewController(vc, animated: false)})
     }
     
+    override func prefersStatusBarHidden() -> Bool {
+        return true
+    }
+    
 }

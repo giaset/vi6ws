@@ -38,4 +38,8 @@ class TextViewController: UIViewController {
         navigationController!.popViewControllerAnimated(false)
     }
     
+    override func prefersStatusBarHidden() -> Bool {
+        return true
+    }
+    
 }
