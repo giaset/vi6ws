@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Social
 
 class WatermarkViewController: UIViewController {
     
@@ -45,6 +46,8 @@ class WatermarkViewController: UIViewController {
         exportView!.closeButton.addTarget(self, action: "closeButtonPressed", forControlEvents: .TouchUpInside)
         exportView!.cameraRollButton.addTarget(self, action: "cameraRollButtonPressed", forControlEvents: .TouchUpInside)
         exportView!.instagramButton.addTarget(self, action: "instagramButtonPressed", forControlEvents: .TouchUpInside)
+        exportView!.facebookButton.addTarget(self, action: "facebookButtonPressed", forControlEvents: .TouchUpInside)
+        exportView!.twitterButton.addTarget(self, action: "twitterButtonPressed", forControlEvents: .TouchUpInside)
     }
     
     func backButtonPressed() {
@@ -116,6 +119,30 @@ class WatermarkViewController: UIViewController {
             
             documentInteractionController!.presentOpenInMenuFromRect(CGRectZero, inView: view, animated: true)
         }
+    }
+    
+    func facebookButtonPressed() {
+        showComposeViewControllerForServiceType(SLServiceTypeFacebook)
+    }
+    
+    func twitterButtonPressed() {
+        showComposeViewControllerForServiceType(SLServiceTypeTwitter)
+    }
+    
+    func showComposeViewControllerForServiceType(serviceType: String) {
+        let img = generateImage()
+        let composeVC = SLComposeViewController(forServiceType: serviceType)
+        composeVC.addImage(img)
+        composeVC.setInitialText("#VI6WS")
+        composeVC.completionHandler = {
+            (result: SLComposeViewControllerResult) in
+            if (result == .Cancelled) {
+                SVProgressHUD.showErrorWithStatus("Sharing cancelled")
+            } else if (result == .Done) {
+                SVProgressHUD.showSuccessWithStatus("Image shared successfully")
+            }
+        }
+        presentViewController(composeVC, animated: true, completion: nil)
     }
     
     override func prefersStatusBarHidden() -> Bool {
