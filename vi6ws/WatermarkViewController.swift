@@ -31,6 +31,8 @@ class WatermarkViewController: UIViewController {
         
         watermarkView = WatermarkView(frame: view.frame)
         watermarkView!.imageView.image = image
+        watermarkView!.imageView.backgroundColor = UIColor.blackColor()
+        watermarkView!.imageView.contentMode = .ScaleAspectFit
         view.addSubview(watermarkView!)
         
         let exportViewHeight = view.frame.height/2
