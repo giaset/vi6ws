@@ -92,7 +92,7 @@ class CaptureViewController: UIViewController, UIImagePickerControllerDelegate, 
     func flipButtonPressed() {
         var cameraPosition = captureView!.cameraPosition
         cameraPosition = (cameraPosition == .Front) ? .Back : .Front
-        captureView!.setCameraPosition(cameraPosition)
+        captureView?.cameraPosition = cameraPosition
     }
     
     func flashButtonPressed() {
@@ -167,7 +167,7 @@ class CaptureViewController: UIViewController, UIImagePickerControllerDelegate, 
     
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [NSObject : AnyObject]) {
         
-        let editedImage = info[UIImagePickerControllerEditedImage] as UIImage?
+        let editedImage = info[UIImagePickerControllerEditedImage] as? UIImage
         let cropRect = info[UIImagePickerControllerCropRect]!.CGRectValue()
         
         if let image = editedImage {

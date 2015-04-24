@@ -16,7 +16,11 @@ class CaptureView: UIView {
     var imageOutput: AVCaptureStillImageOutput?
     var captureDevice: AVCaptureDevice?
     
-    var cameraPosition: AVCaptureDevicePosition
+    var cameraPosition: AVCaptureDevicePosition {
+        didSet {
+            setupCaptureSession()
+        }
+    }
     
     override init(frame: CGRect) {
         cameraPosition = .Back
@@ -67,7 +71,7 @@ class CaptureView: UIView {
     }
     
     func setupDeviceInput(position: AVCaptureDevicePosition) {
-        for device: AVCaptureDevice in AVCaptureDevice.devices() as [AVCaptureDevice] {
+        for device: AVCaptureDevice in AVCaptureDevice.devices() as? [AVCaptureDevice] ?? [] {
             if (device.position == position) {
                 var error: NSError? = nil
                 var input = AVCaptureDeviceInput(device: device, error: &error)
@@ -83,11 +87,6 @@ class CaptureView: UIView {
                 }
             }
         }
-    }
-    
-    func setCameraPosition(position: AVCaptureDevicePosition) {
-        cameraPosition = position
-        setupCaptureSession()
     }
     
     func setupVideoPreviewLayer() {

@@ -10,8 +10,8 @@ import UIKit
 
 class WatermarkPickerView: UIView {
     
-    let buttons = [UIButton]()
-    let images = [[String: UIImage]]()
+    var buttons = [UIButton]()
+    var images = [[String: UIImage]]()
     
     let separator = UIView()
     

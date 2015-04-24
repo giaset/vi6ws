@@ -10,7 +10,7 @@ import UIKit
 
 class WatermarkView: UIView, UIGestureRecognizerDelegate {
     
-    let backgroundView = UIImageView()
+    var backgroundView = UIImageView()
     let imageView = UIImageView()
     let backButton = UIButton()
     let exportButton = UIButton()
@@ -29,6 +29,8 @@ class WatermarkView: UIView, UIGestureRecognizerDelegate {
     }
     
     override init(frame: CGRect) {
+        pickerView = WatermarkPickerView(frame: CGRectZero)
+        
         super.init(frame: frame)
         
         backgroundView = UIImageView(image: UIImage(named: "marble"))
@@ -66,7 +68,6 @@ class WatermarkView: UIView, UIGestureRecognizerDelegate {
         exportButton.setTitleColor(UIColor.whiteColor(), forState: .Highlighted)
         addSubview(exportButton)
         
-        pickerView = WatermarkPickerView(frame: CGRectZero)
         addSubview(pickerView!)
         
         pickerView!.pickedImageClosure = {

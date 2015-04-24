@@ -10,7 +10,7 @@ import UIKit
 
 class TextView: UIView {
     
-    let backgroundView = UIImageView()
+    var backgroundView = UIImageView()
     let textView = UITextView()
     let backButton = UIButton()
     

@@ -436,7 +436,7 @@
 				INFOPLIST_FILE = vi6ws/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = VI6WS;
-				PROVISIONING_PROFILE = "97a28e94-caa2-4455-8a16-1d766f8be0ba";
+				PROVISIONING_PROFILE = "a5086611-cd6d-44f7-9b0c-463f3d9a01ef";
 				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/vi6ws/vi6ws-Bridging-Header.h";
 			};
 			name = Release;
