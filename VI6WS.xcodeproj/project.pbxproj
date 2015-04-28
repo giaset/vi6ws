@@ -270,6 +270,7 @@
 				TargetAttributes = {
 					6861ECCA1A3E8E170044B90C = {
 						CreatedOnToolsVersion = 6.1;
+						DevelopmentTeam = PRZU7H23QD;
 					};
 				};
 			};
@@ -407,7 +408,7 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Gianni Settino (PRZU7H23QD)";
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -420,6 +421,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
+				PROVISIONING_PROFILE = "c122f4ea-3a66-4740-b9ae-db7513278e1e";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -429,6 +431,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = vi6ws/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = VI6WS;
@@ -441,10 +444,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Gianni Settino (PRZU7H23QD)";
 				INFOPLIST_FILE = vi6ws/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = VI6WS;
-				PROVISIONING_PROFILE = "a5086611-cd6d-44f7-9b0c-463f3d9a01ef";
+				PROVISIONING_PROFILE = "c122f4ea-3a66-4740-b9ae-db7513278e1e";
 				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/vi6ws/vi6ws-Bridging-Header.h";
 			};
 			name = Release;
