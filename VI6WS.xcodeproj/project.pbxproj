@@ -105,9 +105,9 @@
 		6861ECC21A3E8E170044B90C = {
 			isa = PBXGroup;
 			children = (
-				6821DC6D1A55C1400092E3A5 /* QuartzCore.framework */,
 				6861ECCD1A3E8E170044B90C /* vi6ws */,
 				68A457BF1A49C04A005FB2FD /* Vendors */,
+				68B97EE91AEA9D4E0061EF4B /* Frameworks */,
 				6861ECCC1A3E8E170044B90C /* Products */,
 			);
 			sourceTree = "<group>";
@@ -211,6 +211,14 @@
 				68B1D4B21A6CAEC5001043D6 /* TextView.swift */,
 			);
 			name = Text;
+			sourceTree = "<group>";
+		};
+		68B97EE91AEA9D4E0061EF4B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				6821DC6D1A55C1400092E3A5 /* QuartzCore.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		68D17BAD1A5123900062F8B2 /* Watermark */ = {
