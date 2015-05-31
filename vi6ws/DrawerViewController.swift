@@ -35,7 +35,7 @@ class DrawerViewController: UIViewController {
     }
     
     func helpButtonPressed() {
-        let helpText = "Nuh time."
+        let helpText = "All content including text, graphics, logos, and images, is the property of October’s Very Own and is protected by Canadian, United States and international copyright laws. “October’s Very Own” designs and OWL designs are trademarks of October’s Very Own IP Holdings used under license by October’s Very Own Merchandising."
         
         presentVC(TextViewController(text: helpText))
     }
