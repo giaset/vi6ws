@@ -27,19 +27,19 @@ class CaptureViewController: UIViewController, UIImagePickerControllerDelegate, 
         captureView = CaptureView(frame: CGRect(x: 0, y: 44, width: view.frame.size.width, height: view.frame.size.width))
         view.addSubview(captureView!)
         
-        captureControlsView?.recordButton?.addTarget(self, action: "recordButtonPressed", forControlEvents: .TouchUpInside)
+        captureControlsView?.recordButton?.addTarget(self, action: #selector(recordButtonPressed), forControlEvents: .TouchUpInside)
         
-        captureControlsView!.hamburgerButton.addTarget(self, action: "hamburgerButtonPressed", forControlEvents: .TouchUpInside)
+        captureControlsView!.hamburgerButton.addTarget(self, action: #selector(hamburgerButtonPressed), forControlEvents: .TouchUpInside)
         
-        captureControlsView!.flipButton.addTarget(self, action: "flipButtonPressed", forControlEvents: .TouchUpInside)
-        captureControlsView!.flashButton.addTarget(self, action: "flashButtonPressed", forControlEvents: .TouchUpInside)
+        captureControlsView!.flipButton.addTarget(self, action: #selector(flipButtonPressed), forControlEvents: .TouchUpInside)
+        captureControlsView!.flashButton.addTarget(self, action: #selector(flashButtonPressed), forControlEvents: .TouchUpInside)
         
         imagePicker.delegate = self
         imagePicker.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
         imagePicker.allowsEditing = true
         imagePicker.mediaTypes = [kUTTypeImage as String]
         
-        captureControlsView!.importButton.addTarget(self, action: "importButtonPressed", forControlEvents: .TouchUpInside)
+        captureControlsView!.importButton.addTarget(self, action: #selector(importButtonPressed), forControlEvents: .TouchUpInside)
     }
 
     override func didReceiveMemoryWarning() {
@@ -101,21 +101,19 @@ class CaptureViewController: UIViewController, UIImagePickerControllerDelegate, 
         if let captureDevice = captureView!.captureDevice {
             let flashMode: AVCaptureFlashMode = (captureControlsView!.flashButton.selected) ? .On : .Off
             if (captureDevice.isFlashModeSupported(flashMode)) {
-                var error: NSError?
-                if (captureDevice.lockForConfiguration()) {
+                do {
+                    try captureDevice.lockForConfiguration()
                     captureDevice.flashMode = flashMode
                     captureDevice.unlockForConfiguration()
-                }
+                } catch {}
             }
         }
     }
     
     func recordButtonPressed() {
-        //flash()
+        guard let imageOutput = captureView?.imageOutput else { return }
         
-        var imageOutput = captureView!.imageOutput!
-        
-        var connection = imageOutput.connectionWithMediaType(AVMediaTypeVideo)
+        let connection = imageOutput.connectionWithMediaType(AVMediaTypeVideo)
         if (connection.supportsVideoOrientation) {
             connection.videoOrientation = currentVideoOrientation()
         }
@@ -125,15 +123,15 @@ class CaptureViewController: UIViewController, UIImagePickerControllerDelegate, 
                 let imageData = AVCaptureStillImageOutput.jpegStillImageNSDataRepresentation(sampleBuffer)
                 let image = UIImage(data: imageData)
                 
-                var previewRect = self.captureView!.videoPreviewLayer!.metadataOutputRectOfInterestForRect(self.captureView!.videoPreviewLayer!.bounds)
-                var imageWidth = CGFloat(CGImageGetWidth(image!.CGImage))
-                var imageHeight = CGFloat(CGImageGetHeight(image!.CGImage))
-                var cropRect = CGRect(x: previewRect.origin.x*imageWidth, y: previewRect.origin.y*imageHeight, width: previewRect.size.width*imageWidth, height: previewRect.size.height*imageHeight)
+                let previewRect = self.captureView!.videoPreviewLayer!.metadataOutputRectOfInterestForRect(self.captureView!.videoPreviewLayer!.bounds)
+                let imageWidth = CGFloat(CGImageGetWidth(image!.CGImage))
+                let imageHeight = CGFloat(CGImageGetHeight(image!.CGImage))
+                let cropRect = CGRect(x: previewRect.origin.x*imageWidth, y: previewRect.origin.y*imageHeight, width: previewRect.size.width*imageWidth, height: previewRect.size.height*imageHeight)
                 
-                var imageRef = CGImageCreateWithImageInRect(image!.CGImage, cropRect)
-                var croppedImage = UIImage(CGImage: imageRef, scale: image!.scale, orientation: image!.imageOrientation)
-                
-                self.navigationController!.pushViewController(WatermarkViewController(image: croppedImage!), animated: true)
+                if let imageRef = CGImageCreateWithImageInRect(image!.CGImage, cropRect) {
+                    let croppedImage = UIImage(CGImage: imageRef, scale: image!.scale, orientation: image!.imageOrientation)
+                    self.navigationController!.pushViewController(WatermarkViewController(image: croppedImage), animated: true)
+                }
             }
         })
     }

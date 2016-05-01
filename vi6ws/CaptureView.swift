@@ -103,7 +103,7 @@ class CaptureView: UIView {
         videoPreviewLayer?.bounds = layerBounds
         videoPreviewLayer?.position = CGPoint(x: CGRectGetMidX(layerBounds), y: CGRectGetMidY(layerBounds))
         
-        layer.addSublayer(videoPreviewLayer)
+        layer.addSublayer(videoPreviewLayer!)
     }
     
 }
