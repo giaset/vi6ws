@@ -6,7 +6,7 @@
 //  Copyright (c) 2014 Milton and Parc. All rights reserved.
 //
 
-import UIKit
+import ECSlidingViewController
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {

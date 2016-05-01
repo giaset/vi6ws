@@ -6,6 +6,6 @@
 //  Copyright (c) 2014 Milton and Parc. All rights reserved.
 //
 
-#import "ECSlidingViewController.h"
-#import "UIViewController+ECSlidingViewController.h"
-#import "SVProgressHUD.h"
+#import <ECSlidingViewController/ECSlidingViewController.h>
+#import <ECSlidingViewController/UIViewController+ECSlidingViewController.h>
+#import <SVProgressHUD/SVProgressHUD.h>
