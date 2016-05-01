@@ -18,9 +18,9 @@ class DrawerViewController: UIViewController {
         drawerView = DrawerView(frame: view.frame)
         view.addSubview(drawerView!)
         
-        drawerView!.websiteButton.addTarget(self, action: "websiteButtonPressed", forControlEvents: .TouchUpInside)
-        drawerView!.aboutButton.addTarget(self, action: "aboutButtonPressed", forControlEvents: .TouchUpInside)
-        drawerView!.helpButton.addTarget(self, action: "helpButtonPressed", forControlEvents: .TouchUpInside)
+        drawerView!.websiteButton.addTarget(self, action: #selector(websiteButtonPressed), forControlEvents: .TouchUpInside)
+        drawerView!.aboutButton.addTarget(self, action: #selector(aboutButtonPressed), forControlEvents: .TouchUpInside)
+        drawerView!.helpButton.addTarget(self, action: #selector(helpButtonPressed), forControlEvents: .TouchUpInside)
     }
     
     func websiteButtonPressed() {

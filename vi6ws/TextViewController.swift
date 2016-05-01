@@ -31,7 +31,7 @@ class TextViewController: UIViewController {
         
         textView!.setText(self.text!)
         
-        textView!.backButton.addTarget(self, action: "backButtonPressed", forControlEvents: .TouchUpInside)
+        textView!.backButton.addTarget(self, action: #selector(backButtonPressed), forControlEvents: .TouchUpInside)
     }
     
     func backButtonPressed() {

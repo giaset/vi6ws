@@ -15,15 +15,13 @@ class WatermarkPickerView: UIView {
     
     let separator = UIView()
     
-    var pickedImageClosure: (image: UIImage) -> ()
+    var pickedImageClosure: ((image: UIImage) -> Void)?
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
     override init(frame: CGRect) {
-        pickedImageClosure = { image in }
-        
         super.init(frame: frame)
         
         images.append(["white": UIImage(named: "6GOD-white")!, "black": UIImage(named: "6GOD-black")!])
@@ -40,7 +38,7 @@ class WatermarkPickerView: UIView {
             button.imageView!.contentMode = .ScaleAspectFit
             button.setImage(image["black"], forState: .Normal)
             button.setImage(image["white"], forState: .Highlighted)
-            button.addTarget(self, action: "buttonPressed:", forControlEvents: .TouchUpInside)
+            button.addTarget(self, action: #selector(buttonPressed(_:)), forControlEvents: .TouchUpInside)
             addSubview(button)
             buttons.append(button)
         }
@@ -78,9 +76,9 @@ class WatermarkPickerView: UIView {
         button.selected = !button.selected
         
         if (button.selected) {
-            pickedImageClosure(image: button.imageForState(.Normal)!)
+            pickedImageClosure?(image: button.imageForState(.Normal)!)
         } else {
-            pickedImageClosure(image: button.imageForState(.Highlighted)!)
+            pickedImageClosure?(image: button.imageForState(.Highlighted)!)
         }
     }
     

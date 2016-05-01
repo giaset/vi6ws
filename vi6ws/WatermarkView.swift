@@ -42,15 +42,15 @@ class WatermarkView: UIView, UIGestureRecognizerDelegate {
         
         watermarkView.userInteractionEnabled = true
         
-        let pan = UIPanGestureRecognizer(target: self, action: "handlePan:")
+        let pan = UIPanGestureRecognizer(target: self, action: #selector(handlePan(_:)))
         pan.delegate = self
         watermarkView.addGestureRecognizer(pan)
         
-        let pinch = UIPinchGestureRecognizer(target: self, action: "handlePinch:")
+        let pinch = UIPinchGestureRecognizer(target: self, action: #selector(handlePinch(_:)))
         pinch.delegate = self
         imageView.addGestureRecognizer(pinch)
         
-        let rotate = UIRotationGestureRecognizer(target: self, action: "handleRotation:")
+        let rotate = UIRotationGestureRecognizer(target: self, action: #selector(handleRotation(_:)))
         rotate.delegate = self
         imageView.addGestureRecognizer(rotate)
         
@@ -70,10 +70,9 @@ class WatermarkView: UIView, UIGestureRecognizerDelegate {
         
         addSubview(pickerView!)
         
-        pickerView!.pickedImageClosure = {
-            (image: UIImage) in
+        pickerView!.pickedImageClosure = { image in
             self.watermarkView.image = image
-            self.watermarkView.transform = CGAffineTransformIdentity; // must reset the transform
+            self.watermarkView.transform = CGAffineTransformIdentity // must reset the transform
             
             let imageViewSize = self.imageView.frame.size
             let imageSize = image.size
