@@ -77,19 +77,19 @@ class CaptureControlsView: UIView {
         
         let recordButtonBackgroundViewRadius = recordButtonRadius+recordButtonBorderWidth
         recordButtonBackgroundView?.frame = CGRect(x: 0, y: frame.size.height-15-2*recordButtonBackgroundViewRadius, width: 2*recordButtonBackgroundViewRadius, height: 2*recordButtonBackgroundViewRadius)
-        recordButtonBackgroundView?.center = CGPointMake(center.x, recordButtonBackgroundView!.center.y)
+        recordButtonBackgroundView?.center = CGPoint(x: center.x, y: recordButtonBackgroundView!.center.y)
         
         recordButton?.frame = CGRect(x: 0, y: 0, width: 2*recordButtonRadius, height: 2*recordButtonRadius)
         recordButton?.center = recordButtonBackgroundView!.center
         
-        let hamburgerButtonSize = CGSizeMake(35, 27)
-        hamburgerButton.frame = CGRect(x: 22, y: self.frame.size.height-28-hamburgerButtonSize.height, width: hamburgerButtonSize.width, height: hamburgerButtonSize.height)
+        let hamburgerButtonSize = CGSize(width: 35, height: 27)
+        hamburgerButton.frame = CGRect(x: 22, y: frame.size.height-28-hamburgerButtonSize.height, width: hamburgerButtonSize.width, height: hamburgerButtonSize.height)
         
-        let flashButtonSize = CGSizeMake(17, 25)
+        let flashButtonSize = CGSize(width: 17, height: 25)
         flashButton.frame = CGRect(x: 22, y: 0, width: flashButtonSize.width, height: flashButtonSize.height)
         flashButton.center = CGPoint(x: flashButton.center.x, y: statusBarHeight/2)
         
-        let flipButtonSize = CGSizeMake(24, 27)
+        let flipButtonSize = CGSize(width: 24, height: 27)
         flipButton.frame = CGRect(x: frame.size.width-22-flipButtonSize.width, y: 0, width: flipButtonSize.width, height: flipButtonSize.height)
         flipButton.center = CGPoint(x: flipButton.center.x, y: statusBarHeight/2)
         

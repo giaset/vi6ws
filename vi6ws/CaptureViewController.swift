@@ -82,7 +82,7 @@ class CaptureViewController: UIViewController, UIImagePickerControllerDelegate, 
     func hamburgerButtonPressed() {
         let slidingVC = self.slidingViewController()
         
-        if (slidingVC.currentTopViewPosition == .Centered) {
+        if slidingVC.currentTopViewPosition == .Centered {
             slidingVC.anchorTopViewToRightAnimated(true)
         } else {
             slidingVC.resetTopViewAnimated(true)
@@ -100,7 +100,7 @@ class CaptureViewController: UIViewController, UIImagePickerControllerDelegate, 
         
         if let captureDevice = captureView!.captureDevice {
             let flashMode: AVCaptureFlashMode = (captureControlsView!.flashButton.selected) ? .On : .Off
-            if (captureDevice.isFlashModeSupported(flashMode)) {
+            if captureDevice.isFlashModeSupported(flashMode) {
                 do {
                     try captureDevice.lockForConfiguration()
                     captureDevice.flashMode = flashMode
@@ -114,12 +114,12 @@ class CaptureViewController: UIViewController, UIImagePickerControllerDelegate, 
         guard let imageOutput = captureView?.imageOutput else { return }
         
         let connection = imageOutput.connectionWithMediaType(AVMediaTypeVideo)
-        if (connection.supportsVideoOrientation) {
+        if connection.supportsVideoOrientation {
             connection.videoOrientation = currentVideoOrientation()
         }
         
         imageOutput.captureStillImageAsynchronouslyFromConnection(connection, completionHandler: { (sampleBuffer: CMSampleBuffer!, error: NSError!) -> Void in
-            if (sampleBuffer != nil) {
+            if sampleBuffer != nil {
                 let imageData = AVCaptureStillImageOutput.jpegStillImageNSDataRepresentation(sampleBuffer)
                 let image = UIImage(data: imageData)
                 
@@ -140,7 +140,7 @@ class CaptureViewController: UIViewController, UIImagePickerControllerDelegate, 
         let deviceOrientation = UIDevice.currentDevice().orientation
         var videoOrientation: AVCaptureVideoOrientation
         
-        switch (deviceOrientation) {
+        switch deviceOrientation {
         case .PortraitUpsideDown:
             videoOrientation = .PortraitUpsideDown
             break
@@ -186,4 +186,3 @@ class CaptureViewController: UIViewController, UIImagePickerControllerDelegate, 
     }
 
 }
-

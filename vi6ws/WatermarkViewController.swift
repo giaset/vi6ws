@@ -91,7 +91,7 @@ class WatermarkViewController: UIViewController {
         self.watermarkView!.watermarkView.userInteractionEnabled = true
     }
     
-    func image(image: UIImage, didFinishSavingWithError error: NSError, contextInfo:UnsafePointer<Void>) {
+    func image(image: UIImage, didFinishSavingWithError error: NSError, contextInfo: UnsafePointer<Void>) {
         SVProgressHUD.showSuccessWithStatus("Successfully saved image to camera roll")
     }
     
@@ -104,7 +104,7 @@ class WatermarkViewController: UIViewController {
     }
     
     func instagramButtonPressed() {
-        if (UIApplication.sharedApplication().canOpenURL(NSURL(string: "instagram://")!)) {
+        if UIApplication.sharedApplication().canOpenURL(NSURL(string: "instagram://")!) {
             let savePath = (NSHomeDirectory() as NSString).stringByAppendingPathComponent("Documents/image.igo")
             
             let img = generateImage()
@@ -136,9 +136,9 @@ class WatermarkViewController: UIViewController {
         composeVC.setInitialText("#VI6WS")
         composeVC.completionHandler = {
             (result: SLComposeViewControllerResult) in
-            if (result == .Cancelled) {
+            if result == .Cancelled {
                 SVProgressHUD.showErrorWithStatus("Sharing cancelled")
-            } else if (result == .Done) {
+            } else if result == .Done {
                 SVProgressHUD.showSuccessWithStatus("Image shared successfully")
             }
         }

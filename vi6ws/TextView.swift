@@ -44,7 +44,7 @@ class TextView: UIView {
         
         backButton.sizeToFit()
         backButton.frame = CGRect(x: padding, y: 0, width: backButton.frame.size.width, height: backButton.frame.size.height)
-        backButton.center = CGPointMake(backButton.center.x, statusBarHeight/2)
+        backButton.center.y = statusBarHeight*0.5
         
         textView.frame = CGRect(x: padding, y: statusBarHeight, width: frame.width-2*padding, height: frame.height-statusBarHeight)
     }

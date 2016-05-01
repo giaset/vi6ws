@@ -79,7 +79,7 @@ class WatermarkView: UIView, UIGestureRecognizerDelegate {
             
             var watermarkSize = image.size
             
-            if (imageSize.width > imageViewSize.width || imageSize.height > imageViewSize.height) {
+            if imageSize.width > imageViewSize.width || imageSize.height > imageViewSize.height {
                 let widthRatio = imageViewSize.width/imageSize.width
                 let heightRatio = imageViewSize.height/imageSize.height
                 
@@ -102,15 +102,15 @@ class WatermarkView: UIView, UIGestureRecognizerDelegate {
         imageView.frame = CGRect(x: 0, y: statusBarHeight, width: frame.size.width, height: frame.size.width)
         
         let startingY = CGRectGetMaxY(imageView.frame)
-        pickerView!.frame = CGRect(x: 0, y: startingY, width: frame.size.width, height: frame.size.height-startingY)
+        pickerView?.frame = CGRect(x: 0, y: startingY, width: frame.size.width, height: frame.size.height-startingY)
         
         backButton.sizeToFit()
         backButton.frame = CGRect(x: padding, y: 0, width: backButton.frame.size.width, height: backButton.frame.size.height)
-        backButton.center = CGPointMake(backButton.center.x, statusBarHeight/2)
+        backButton.center.y = statusBarHeight*0.5
         
         exportButton.sizeToFit()
         exportButton.frame = CGRect(x: frame.size.width-padding-exportButton.frame.size.width, y: 0, width: exportButton.frame.size.width, height: exportButton.frame.size.height)
-        exportButton.center = CGPointMake(exportButton.center.x, statusBarHeight/2)
+        exportButton.center.y = statusBarHeight*0.5
     }
     
     func handlePinch(recognizer: UIPinchGestureRecognizer) {
@@ -121,7 +121,7 @@ class WatermarkView: UIView, UIGestureRecognizerDelegate {
     func handlePan(recognizer: UIPanGestureRecognizer) {
         watermarkView.center = lastCenter + recognizer.translationInView(self)
         
-        if (recognizer.state == .Ended) {
+        if recognizer.state == .Ended {
             lastCenter = watermarkView.center
         }
     }

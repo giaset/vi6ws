@@ -36,9 +36,9 @@ class CaptureView: UIView {
     
     override func willMoveToSuperview(newSuperview: UIView?) {
         super.willMoveToSuperview(newSuperview)
-        if (newSuperview != nil && newSuperview != superview) {
+        if newSuperview != nil && newSuperview != superview {
             setupCaptureSession()
-        } else if (newSuperview == nil) {
+        } else if newSuperview == nil {
             tearDownCaptureSession()
         }
     }
@@ -58,8 +58,8 @@ class CaptureView: UIView {
     }
     
     func tearDownCaptureSession() {
-        if (captureSession == nil) {
-            return;
+        if captureSession == nil {
+            return
         }
         
         captureSession?.stopRunning()
@@ -71,25 +71,20 @@ class CaptureView: UIView {
     }
     
     func setupDeviceInput(position: AVCaptureDevicePosition) {
-        for device: AVCaptureDevice in AVCaptureDevice.devices() as? [AVCaptureDevice] ?? [] {
-            if (device.position == position) {
-                var error: NSError? = nil
-                var input: AVCaptureDeviceInput!
+        guard let captureSession = captureSession else { return }
+        
+        for device in AVCaptureDevice.devices() as? [AVCaptureDevice] ?? [] {
+            if device.position == position {
                 do {
-                    input = try AVCaptureDeviceInput(device: device)
-                } catch let error1 as NSError {
-                    error = error1
-                    input = nil
-                }
-                if (error == nil) {
-                    if (captureSession!.canAddInput(input)) {
-                        captureSession?.addInput(input)
+                    let input = try AVCaptureDeviceInput(device: device)
+                    if captureSession.canAddInput(input) {
+                        captureSession.addInput(input)
                         captureDevice = device
                     } else {
                         print("Capture session can't add camera input")
                     }
-                } else {
-                    print("Error adding camera: " + error!.localizedDescription)
+                } catch let error as NSError {
+                    print("Error adding camera: " + error.localizedDescription)
                 }
             }
         }
