@@ -30,7 +30,7 @@ class CaptureControlsView: UIView {
         commonInit()
     }
 
-    required init(coder aDecoder: NSCoder) {
+    required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         commonInit()
     }
@@ -52,7 +52,7 @@ class CaptureControlsView: UIView {
         recordButton?.clipsToBounds = true
         addSubview(recordButton!)
         
-        var hamburgerImage = UIImage(named: "hamburger")?.imageWithRenderingMode(.AlwaysTemplate)
+        let hamburgerImage = UIImage(named: "hamburger")?.imageWithRenderingMode(.AlwaysTemplate)
         hamburgerButton.setBackgroundImage(hamburgerImage, forState: .Normal)
         hamburgerButton.tintColor = UIColor.blackColor()
         hamburgerButton.showsTouchWhenHighlighted = true
@@ -75,7 +75,7 @@ class CaptureControlsView: UIView {
         
         backgroundView?.frame = frame
         
-        var recordButtonBackgroundViewRadius = recordButtonRadius+recordButtonBorderWidth
+        let recordButtonBackgroundViewRadius = recordButtonRadius+recordButtonBorderWidth
         recordButtonBackgroundView?.frame = CGRect(x: 0, y: frame.size.height-15-2*recordButtonBackgroundViewRadius, width: 2*recordButtonBackgroundViewRadius, height: 2*recordButtonBackgroundViewRadius)
         recordButtonBackgroundView?.center = CGPointMake(center.x, recordButtonBackgroundView!.center.y)
         

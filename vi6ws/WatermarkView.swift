@@ -24,7 +24,7 @@ class WatermarkView: UIView, UIGestureRecognizerDelegate {
     
     var lastCenter = CGPointZero
     
-    required init(coder aDecoder: NSCoder) {
+    required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
@@ -42,15 +42,15 @@ class WatermarkView: UIView, UIGestureRecognizerDelegate {
         
         watermarkView.userInteractionEnabled = true
         
-        var pan = UIPanGestureRecognizer(target: self, action: "handlePan:")
+        let pan = UIPanGestureRecognizer(target: self, action: "handlePan:")
         pan.delegate = self
         watermarkView.addGestureRecognizer(pan)
         
-        var pinch = UIPinchGestureRecognizer(target: self, action: "handlePinch:")
+        let pinch = UIPinchGestureRecognizer(target: self, action: "handlePinch:")
         pinch.delegate = self
         imageView.addGestureRecognizer(pinch)
         
-        var rotate = UIRotationGestureRecognizer(target: self, action: "handleRotation:")
+        let rotate = UIRotationGestureRecognizer(target: self, action: "handleRotation:")
         rotate.delegate = self
         imageView.addGestureRecognizer(rotate)
         
@@ -102,7 +102,7 @@ class WatermarkView: UIView, UIGestureRecognizerDelegate {
         
         imageView.frame = CGRect(x: 0, y: statusBarHeight, width: frame.size.width, height: frame.size.width)
         
-        var startingY = CGRectGetMaxY(imageView.frame)
+        let startingY = CGRectGetMaxY(imageView.frame)
         pickerView!.frame = CGRect(x: 0, y: startingY, width: frame.size.width, height: frame.size.height-startingY)
         
         backButton.sizeToFit()

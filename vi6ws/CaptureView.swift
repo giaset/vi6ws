@@ -28,7 +28,7 @@ class CaptureView: UIView {
         backgroundColor = UIColor.blackColor()
     }
     
-    required init(coder aDecoder: NSCoder) {
+    required init?(coder aDecoder: NSCoder) {
         cameraPosition = .Back
         super.init(coder: aDecoder)
         backgroundColor = UIColor.blackColor()
@@ -74,16 +74,22 @@ class CaptureView: UIView {
         for device: AVCaptureDevice in AVCaptureDevice.devices() as? [AVCaptureDevice] ?? [] {
             if (device.position == position) {
                 var error: NSError? = nil
-                var input = AVCaptureDeviceInput(device: device, error: &error)
+                var input: AVCaptureDeviceInput!
+                do {
+                    input = try AVCaptureDeviceInput(device: device)
+                } catch let error1 as NSError {
+                    error = error1
+                    input = nil
+                }
                 if (error == nil) {
                     if (captureSession!.canAddInput(input)) {
                         captureSession?.addInput(input)
                         captureDevice = device
                     } else {
-                        println("Capture session can't add camera input")
+                        print("Capture session can't add camera input")
                     }
                 } else {
-                    println("Error adding camera: " + error!.localizedDescription)
+                    print("Error adding camera: " + error!.localizedDescription)
                 }
             }
         }
@@ -92,7 +98,7 @@ class CaptureView: UIView {
     func setupVideoPreviewLayer() {
         videoPreviewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
         
-        var layerBounds = layer.bounds
+        let layerBounds = layer.bounds
         videoPreviewLayer?.videoGravity = AVLayerVideoGravityResizeAspectFill
         videoPreviewLayer?.bounds = layerBounds
         videoPreviewLayer?.position = CGPoint(x: CGRectGetMidX(layerBounds), y: CGRectGetMidY(layerBounds))

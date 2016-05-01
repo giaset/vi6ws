@@ -18,7 +18,7 @@ class WatermarkViewController: UIViewController {
     
     var documentInteractionController: UIDocumentInteractionController?
     
-    required init(coder aDecoder: NSCoder) {
+    required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
@@ -71,7 +71,7 @@ class WatermarkViewController: UIViewController {
     func generateImage() -> UIImage {
         UIGraphicsBeginImageContextWithOptions(watermarkView!.imageView.bounds.size, true, 0.0)
         watermarkView!.imageView.drawViewHierarchyInRect(watermarkView!.imageView.bounds, afterScreenUpdates: true)
-        var img = UIGraphicsGetImageFromCurrentImageContext()
+        let img = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
         
         return img
@@ -105,7 +105,7 @@ class WatermarkViewController: UIViewController {
     
     func instagramButtonPressed() {
         if (UIApplication.sharedApplication().canOpenURL(NSURL(string: "instagram://")!)) {
-            let savePath = NSHomeDirectory().stringByAppendingPathComponent("Documents/image.igo")
+            let savePath = (NSHomeDirectory() as NSString).stringByAppendingPathComponent("Documents/image.igo")
             
             let img = generateImage()
             

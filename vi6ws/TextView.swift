@@ -49,7 +49,7 @@ class TextView: UIView {
         textView.frame = CGRect(x: padding, y: statusBarHeight, width: frame.width-2*padding, height: frame.height-statusBarHeight)
     }
 
-    required init(coder aDecoder: NSCoder) {
+    required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     

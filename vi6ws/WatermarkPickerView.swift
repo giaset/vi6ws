@@ -17,7 +17,7 @@ class WatermarkPickerView: UIView {
     
     var pickedImageClosure: (image: UIImage) -> ()
     
-    required init(coder aDecoder: NSCoder) {
+    required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
@@ -36,7 +36,7 @@ class WatermarkPickerView: UIView {
         images.append(["white": UIImage(named: "majidjordan-white")!, "black": UIImage(named: "majidjordan-black")!])
         
         for image in images {
-            var button = UIButton()
+            let button = UIButton()
             button.imageView!.contentMode = .ScaleAspectFit
             button.setImage(image["black"], forState: .Normal)
             button.setImage(image["white"], forState: .Highlighted)
@@ -52,8 +52,8 @@ class WatermarkPickerView: UIView {
     override func layoutSubviews() {
         super.layoutSubviews()
         
-        var buttonWidth = frame.size.width/2
-        var buttonHeight = frame.size.height/4
+        let buttonWidth = frame.size.width/2
+        let buttonHeight = frame.size.height/4
         
         for i in 0...7 {
             if (i < 4) {

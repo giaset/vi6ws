@@ -37,7 +37,7 @@ class CaptureViewController: UIViewController, UIImagePickerControllerDelegate, 
         imagePicker.delegate = self
         imagePicker.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
         imagePicker.allowsEditing = true
-        imagePicker.mediaTypes = [kUTTypeImage]
+        imagePicker.mediaTypes = [kUTTypeImage as String]
         
         captureControlsView!.importButton.addTarget(self, action: "importButtonPressed", forControlEvents: .TouchUpInside)
     }
@@ -80,7 +80,7 @@ class CaptureViewController: UIViewController, UIImagePickerControllerDelegate, 
     }
     
     func hamburgerButtonPressed() {
-        var slidingVC = self.slidingViewController()
+        let slidingVC = self.slidingViewController()
         
         if (slidingVC.currentTopViewPosition == .Centered) {
             slidingVC.anchorTopViewToRightAnimated(true)
@@ -99,10 +99,10 @@ class CaptureViewController: UIViewController, UIImagePickerControllerDelegate, 
         captureControlsView!.flashButton.selected = !captureControlsView!.flashButton.selected
         
         if let captureDevice = captureView!.captureDevice {
-            var flashMode: AVCaptureFlashMode = (captureControlsView!.flashButton.selected) ? .On : .Off
+            let flashMode: AVCaptureFlashMode = (captureControlsView!.flashButton.selected) ? .On : .Off
             if (captureDevice.isFlashModeSupported(flashMode)) {
                 var error: NSError?
-                if (captureDevice.lockForConfiguration(&error)) {
+                if (captureDevice.lockForConfiguration()) {
                     captureDevice.flashMode = flashMode
                     captureDevice.unlockForConfiguration()
                 }
@@ -165,15 +165,15 @@ class CaptureViewController: UIViewController, UIImagePickerControllerDelegate, 
         presentViewController(imagePicker, animated: true, completion: nil)
     }
     
-    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [NSObject : AnyObject]) {
+    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
         
         let editedImage = info[UIImagePickerControllerEditedImage] as? UIImage
         let cropRect = info[UIImagePickerControllerCropRect]!.CGRectValue()
         
         if let image = editedImage {
             
-            println(image.size)
-            println(cropRect)
+            print(image.size)
+            print(cropRect)
             
             dismissViewControllerAnimated(true, completion: {
                 self.navigationController!.pushViewController(WatermarkViewController(image: image), animated: true)
