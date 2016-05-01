@@ -6,11 +6,9 @@
 //  Copyright (c) 2014 Milton and Parc. All rights reserved.
 //
 
-import UIKit
-
 class DrawerViewController: UIViewController {
     
-    var drawerView: DrawerView?
+    private var drawerView: DrawerView?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,14 +16,8 @@ class DrawerViewController: UIViewController {
         drawerView = DrawerView(frame: view.frame)
         view.addSubview(drawerView!)
         
-        drawerView!.websiteButton.addTarget(self, action: #selector(websiteButtonPressed), forControlEvents: .TouchUpInside)
         drawerView!.aboutButton.addTarget(self, action: #selector(aboutButtonPressed), forControlEvents: .TouchUpInside)
         drawerView!.helpButton.addTarget(self, action: #selector(helpButtonPressed), forControlEvents: .TouchUpInside)
-    }
-    
-    func websiteButtonPressed() {
-        let url = NSURL(string: "http://www.vi6ws.com")
-        UIApplication.sharedApplication().openURL(url!)
     }
 
     func aboutButtonPressed() {
@@ -41,7 +33,7 @@ class DrawerViewController: UIViewController {
     }
     
     func presentVC(vc: UIViewController) {
-        let slidingVC = self.slidingViewController()
+        let slidingVC = slidingViewController()
         
         let mainNavController = slidingVC.topViewController as? UINavigationController
         

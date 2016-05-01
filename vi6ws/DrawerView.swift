@@ -10,13 +10,11 @@ import UIKit
 
 class DrawerView: UIView {
     
-    let websiteButton = UIButton()
     let aboutButton = UIButton()
     let helpButton = UIButton()
     
     let separator1 = UIView()
     let separator2 = UIView()
-    let separator3 = UIView()
     
     let separatorHeight: CGFloat = 2
     let separatorAlpha: CGFloat = 0.15
@@ -24,16 +22,6 @@ class DrawerView: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        
-        websiteButton.setTitle("VI6WS WEBSITE", forState: .Normal)
-        websiteButton.setBackgroundImage(UIImage.imageWithColor(UIColor.blackColor()), forState: .Normal)
-        websiteButton.setBackgroundImage(UIImage.imageWithColor(UIColor.whiteColor()), forState: .Highlighted)
-        websiteButton.setTitleColor(UIColor.whiteColor(), forState: .Normal)
-        websiteButton.setTitleColor(UIColor.blackColor(), forState: .Highlighted)
-        websiteButton.contentHorizontalAlignment = .Left
-        websiteButton.contentEdgeInsets = UIEdgeInsetsMake(0, 25, 0, 0)
-        websiteButton.titleLabel?.font = UIFont(name: "FuturaBT-Heavy", size: 16)
-        addSubview(websiteButton)
         
         aboutButton.setTitle("ABOUT", forState: .Normal)
         aboutButton.setBackgroundImage(UIImage.imageWithColor(UIColor.blackColor()), forState: .Normal)
@@ -62,10 +50,6 @@ class DrawerView: UIView {
         separator2.backgroundColor = UIColor.whiteColor()
         separator2.alpha = separatorAlpha
         addSubview(separator2)
-        
-        separator3.backgroundColor = UIColor.whiteColor()
-        separator3.alpha = separatorAlpha
-        addSubview(separator3)
     }
 
     required init?(coder aDecoder: NSCoder) {
@@ -75,25 +59,18 @@ class DrawerView: UIView {
     override func layoutSubviews() {
         super.layoutSubviews()
         
-        let totalHeight = (3*separatorHeight)+(3*buttonHeight)
-        var currentHeight = self.frame.size.height-totalHeight
+        let totalHeight = 2*(separatorHeight+buttonHeight)
+        var currentHeight = frame.size.height-totalHeight
         
         separator1.frame = CGRect(x: 0, y: currentHeight, width: frame.size.width, height: separatorHeight)
-        currentHeight += separatorHeight
-        
-        websiteButton.frame = CGRect(x: 0, y: currentHeight, width: frame.size.width, height: buttonHeight)
-        currentHeight += buttonHeight
-        
-        separator2.frame = CGRect(x: 0, y: currentHeight, width: frame.size.width, height: separatorHeight)
         currentHeight += separatorHeight
         
         aboutButton.frame = CGRect(x: 0, y: currentHeight, width: frame.size.width, height: buttonHeight)
         currentHeight += buttonHeight
         
-        separator3.frame = CGRect(x: 0, y: currentHeight, width: frame.size.width, height: separatorHeight)
+        separator2.frame = CGRect(x: 0, y: currentHeight, width: frame.size.width, height: separatorHeight)
         currentHeight += separatorHeight
         
         helpButton.frame = CGRect(x: 0, y: currentHeight, width: frame.size.width, height: buttonHeight)
     }
-    
 }
