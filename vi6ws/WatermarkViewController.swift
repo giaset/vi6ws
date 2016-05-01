@@ -40,14 +40,14 @@ class WatermarkViewController: UIViewController {
         exportView = ExportView(frame: CGRect(x: 0, y: view.frame.height, width: view.frame.width, height: exportViewHeight))
         view.addSubview(exportView!)
         
-        watermarkView!.backButton.addTarget(self, action: "backButtonPressed", forControlEvents: .TouchUpInside)
-        watermarkView!.exportButton.addTarget(self, action: "exportButtonPressed", forControlEvents: .TouchUpInside)
+        watermarkView!.backButton.addTarget(self, action: #selector(backButtonPressed), forControlEvents: .TouchUpInside)
+        watermarkView!.exportButton.addTarget(self, action: #selector(exportButtonPressed), forControlEvents: .TouchUpInside)
         
-        exportView!.closeButton.addTarget(self, action: "closeButtonPressed", forControlEvents: .TouchUpInside)
-        exportView!.cameraRollButton.addTarget(self, action: "cameraRollButtonPressed", forControlEvents: .TouchUpInside)
-        exportView!.instagramButton.addTarget(self, action: "instagramButtonPressed", forControlEvents: .TouchUpInside)
-        exportView!.facebookButton.addTarget(self, action: "facebookButtonPressed", forControlEvents: .TouchUpInside)
-        exportView!.twitterButton.addTarget(self, action: "twitterButtonPressed", forControlEvents: .TouchUpInside)
+        exportView!.closeButton.addTarget(self, action: #selector(closeButtonPressed), forControlEvents: .TouchUpInside)
+        exportView!.cameraRollButton.addTarget(self, action: #selector(cameraRollButtonPressed), forControlEvents: .TouchUpInside)
+        exportView!.instagramButton.addTarget(self, action: #selector(instagramButtonPressed), forControlEvents: .TouchUpInside)
+        exportView!.facebookButton.addTarget(self, action: #selector(facebookButtonPressed), forControlEvents: .TouchUpInside)
+        exportView!.twitterButton.addTarget(self, action: #selector(twitterButtonPressed), forControlEvents: .TouchUpInside)
     }
     
     func backButtonPressed() {
@@ -100,7 +100,7 @@ class WatermarkViewController: UIViewController {
         
         let img = generateImage()
         
-        UIImageWriteToSavedPhotosAlbum(img, self, "image:didFinishSavingWithError:contextInfo:", nil)
+        UIImageWriteToSavedPhotosAlbum(img, self, #selector(image(_:didFinishSavingWithError:contextInfo:)), nil)
     }
     
     func instagramButtonPressed() {
@@ -109,7 +109,7 @@ class WatermarkViewController: UIViewController {
             
             let img = generateImage()
             
-            UIImageJPEGRepresentation(img, 1.0).writeToFile(savePath, atomically: true)
+            UIImageJPEGRepresentation(img, 1.0)?.writeToFile(savePath, atomically: true)
             
             let instagramImageHookFile = NSURL(string: "file://"+savePath)
             
