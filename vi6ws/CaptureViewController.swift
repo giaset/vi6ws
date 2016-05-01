@@ -16,7 +16,7 @@ class CaptureViewController: UIViewController, UIImagePickerControllerDelegate, 
     var captureView: CaptureView?
     var flashView: UIView?
     
-    let imagePicker = UIImagePickerController()
+    let imagePicker = ViewsImagePickerController()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,7 +35,7 @@ class CaptureViewController: UIViewController, UIImagePickerControllerDelegate, 
         captureControlsView!.flashButton.addTarget(self, action: #selector(flashButtonPressed), forControlEvents: .TouchUpInside)
         
         imagePicker.delegate = self
-        imagePicker.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
+        imagePicker.sourceType = .PhotoLibrary
         imagePicker.allowsEditing = true
         imagePicker.mediaTypes = [kUTTypeImage as String]
         
@@ -118,7 +118,10 @@ class CaptureViewController: UIViewController, UIImagePickerControllerDelegate, 
             connection.videoOrientation = currentVideoOrientation()
         }
         
+        view.userInteractionEnabled = false
         imageOutput.captureStillImageAsynchronouslyFromConnection(connection, completionHandler: { (sampleBuffer: CMSampleBuffer!, error: NSError!) -> Void in
+            self.view.userInteractionEnabled = true
+            
             if sampleBuffer != nil {
                 let imageData = AVCaptureStillImageOutput.jpegStillImageNSDataRepresentation(sampleBuffer)
                 let image = UIImage(data: imageData)
@@ -185,4 +188,11 @@ class CaptureViewController: UIViewController, UIImagePickerControllerDelegate, 
         return true
     }
 
+}
+
+class ViewsImagePickerController: UIImagePickerController {
+    
+    override func prefersStatusBarHidden() -> Bool {
+        return true
+    }
 }
