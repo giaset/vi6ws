@@ -124,15 +124,20 @@ class CaptureViewController: UIViewController, UIImagePickerControllerDelegate, 
             
             if sampleBuffer != nil {
                 let imageData = AVCaptureStillImageOutput.jpegStillImageNSDataRepresentation(sampleBuffer)
-                let image = UIImage(data: imageData)
+                var capturedImage = UIImage(data: imageData)
+                
+                // if it's a selfie, flip to look the same as the preview
+                if let image = capturedImage, cgImage = image.CGImage where self.captureView?.cameraPosition == .Front {
+                    capturedImage = UIImage(CGImage: cgImage, scale: image.scale, orientation: .LeftMirrored)
+                }
                 
                 let previewRect = self.captureView!.videoPreviewLayer!.metadataOutputRectOfInterestForRect(self.captureView!.videoPreviewLayer!.bounds)
-                let imageWidth = CGFloat(CGImageGetWidth(image!.CGImage))
-                let imageHeight = CGFloat(CGImageGetHeight(image!.CGImage))
+                let imageWidth = CGFloat(CGImageGetWidth(capturedImage!.CGImage))
+                let imageHeight = CGFloat(CGImageGetHeight(capturedImage!.CGImage))
                 let cropRect = CGRect(x: previewRect.origin.x*imageWidth, y: previewRect.origin.y*imageHeight, width: previewRect.size.width*imageWidth, height: previewRect.size.height*imageHeight)
                 
-                if let imageRef = CGImageCreateWithImageInRect(image!.CGImage, cropRect) {
-                    let croppedImage = UIImage(CGImage: imageRef, scale: image!.scale, orientation: image!.imageOrientation)
+                if let imageRef = CGImageCreateWithImageInRect(capturedImage!.CGImage, cropRect) {
+                    let croppedImage = UIImage(CGImage: imageRef, scale: capturedImage!.scale, orientation: capturedImage!.imageOrientation)
                     self.navigationController!.pushViewController(WatermarkViewController(image: croppedImage), animated: true)
                 }
             }
